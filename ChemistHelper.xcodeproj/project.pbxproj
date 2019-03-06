@@ -3,18 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3EB8C0D509DBB6D1B0494B92 /* Pods_ChemistHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84769D28CC6B4DEE0C79F904 /* Pods_ChemistHelper.framework */; };
 		A66B87E2222F84CE0004263B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66B87E1222F84CE0004263B /* AppDelegate.swift */; };
 		A66B87E4222F84CE0004263B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66B87E3222F84CE0004263B /* ViewController.swift */; };
 		A66B87E7222F84CE0004263B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A66B87E5222F84CE0004263B /* Main.storyboard */; };
 		A66B87E9222F84D00004263B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A66B87E8222F84D00004263B /* Assets.xcassets */; };
 		A66B87EC222F84D00004263B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A66B87EA222F84D00004263B /* LaunchScreen.storyboard */; };
+		A66B87F5222F85500004263B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A66B87F4222F85500004263B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		71F2252C473903E1B04284F8 /* Pods-ChemistHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChemistHelper.debug.xcconfig"; path = "Target Support Files/Pods-ChemistHelper/Pods-ChemistHelper.debug.xcconfig"; sourceTree = "<group>"; };
+		84769D28CC6B4DEE0C79F904 /* Pods_ChemistHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChemistHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A66B87DE222F84CE0004263B /* ChemistHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChemistHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A66B87E1222F84CE0004263B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A66B87E3222F84CE0004263B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +26,8 @@
 		A66B87E8222F84D00004263B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A66B87EB222F84D00004263B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A66B87ED222F84D00004263B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A66B87F4222F85500004263B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D8EA21F98817992A97B81630 /* Pods-ChemistHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChemistHelper.release.xcconfig"; path = "Target Support Files/Pods-ChemistHelper/Pods-ChemistHelper.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EB8C0D509DBB6D1B0494B92 /* Pods_ChemistHelper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21EA5B05A8A3097F088EDB9F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84769D28CC6B4DEE0C79F904 /* Pods_ChemistHelper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		97B7A75B852B3F24174C6BF5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				71F2252C473903E1B04284F8 /* Pods-ChemistHelper.debug.xcconfig */,
+				D8EA21F98817992A97B81630 /* Pods-ChemistHelper.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		A66B87D5222F84CE0004263B = {
 			isa = PBXGroup;
 			children = (
 				A66B87E0222F84CE0004263B /* ChemistHelper */,
 				A66B87DF222F84CE0004263B /* Products */,
+				97B7A75B852B3F24174C6BF5 /* Pods */,
+				21EA5B05A8A3097F088EDB9F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +80,47 @@
 		A66B87E0222F84CE0004263B /* ChemistHelper */ = {
 			isa = PBXGroup;
 			children = (
-				A66B87E1222F84CE0004263B /* AppDelegate.swift */,
-				A66B87E3222F84CE0004263B /* ViewController.swift */,
-				A66B87E5222F84CE0004263B /* Main.storyboard */,
-				A66B87E8222F84D00004263B /* Assets.xcassets */,
-				A66B87EA222F84D00004263B /* LaunchScreen.storyboard */,
-				A66B87ED222F84D00004263B /* Info.plist */,
+				A66B87F9222F86DB0004263B /* Controller */,
+				A66B87F7222F86C40004263B /* View */,
+				A66B87F6222F86B80004263B /* Model */,
+				A66B87F3222F85040004263B /* Support FIles */,
 			);
 			path = ChemistHelper;
+			sourceTree = "<group>";
+		};
+		A66B87F3222F85040004263B /* Support FIles */ = {
+			isa = PBXGroup;
+			children = (
+				A66B87F4222F85500004263B /* GoogleService-Info.plist */,
+				A66B87ED222F84D00004263B /* Info.plist */,
+				A66B87E8222F84D00004263B /* Assets.xcassets */,
+			);
+			name = "Support FIles";
+			sourceTree = "<group>";
+		};
+		A66B87F6222F86B80004263B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A66B87F7222F86C40004263B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A66B87E5222F84CE0004263B /* Main.storyboard */,
+				A66B87EA222F84D00004263B /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		A66B87F9222F86DB0004263B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A66B87E3222F84CE0004263B /* ViewController.swift */,
+				A66B87E1222F84CE0004263B /* AppDelegate.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +130,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A66B87F0222F84D00004263B /* Build configuration list for PBXNativeTarget "ChemistHelper" */;
 			buildPhases = (
+				855EEEAB0106B9532573E214 /* [CP] Check Pods Manifest.lock */,
 				A66B87DA222F84CE0004263B /* Sources */,
 				A66B87DB222F84CE0004263B /* Frameworks */,
 				A66B87DC222F84CE0004263B /* Resources */,
+				0F976ED9E45A5CA2FA232579 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,12 +184,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				A66B87EC222F84D00004263B /* LaunchScreen.storyboard in Resources */,
+				A66B87F5222F85500004263B /* GoogleService-Info.plist in Resources */,
 				A66B87E9222F84D00004263B /* Assets.xcassets in Resources */,
 				A66B87E7222F84CE0004263B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0F976ED9E45A5CA2FA232579 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChemistHelper/Pods-ChemistHelper-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChemistHelper/Pods-ChemistHelper-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChemistHelper/Pods-ChemistHelper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		855EEEAB0106B9532573E214 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ChemistHelper-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A66B87DA222F84CE0004263B /* Sources */ = {
@@ -280,6 +384,7 @@
 		};
 		A66B87F1222F84D00004263B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71F2252C473903E1B04284F8 /* Pods-ChemistHelper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +403,7 @@
 		};
 		A66B87F2222F84D00004263B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8EA21F98817992A97B81630 /* Pods-ChemistHelper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
