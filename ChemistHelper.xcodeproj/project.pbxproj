@@ -14,6 +14,11 @@
 		A66B87E9222F84D00004263B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A66B87E8222F84D00004263B /* Assets.xcassets */; };
 		A66B87EC222F84D00004263B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A66B87EA222F84D00004263B /* LaunchScreen.storyboard */; };
 		A66B87F5222F85500004263B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A66B87F4222F85500004263B /* GoogleService-Info.plist */; };
+		A66B87FD2236296D0004263B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66B87FC2236296D0004263B /* Product.swift */; };
+		A68F980222371C3600E145B5 /* UserDataModelAndFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F980122371C3600E145B5 /* UserDataModelAndFunctions.swift */; };
+		A68F980422371F5C00E145B5 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F980322371F5C00E145B5 /* LogInViewController.swift */; };
+		A68F98062237211500E145B5 /* SignOnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F98052237211500E145B5 /* SignOnViewController.swift */; };
+		A68F98082237367500E145B5 /* DashBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F98072237367500E145B5 /* DashBoardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +32,11 @@
 		A66B87EB222F84D00004263B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A66B87ED222F84D00004263B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A66B87F4222F85500004263B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A66B87FC2236296D0004263B /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		A68F980122371C3600E145B5 /* UserDataModelAndFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModelAndFunctions.swift; sourceTree = "<group>"; };
+		A68F980322371F5C00E145B5 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		A68F98052237211500E145B5 /* SignOnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOnViewController.swift; sourceTree = "<group>"; };
+		A68F98072237367500E145B5 /* DashBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardViewController.swift; sourceTree = "<group>"; };
 		D8EA21F98817992A97B81630 /* Pods-ChemistHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChemistHelper.release.xcconfig"; path = "Target Support Files/Pods-ChemistHelper/Pods-ChemistHelper.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +111,8 @@
 		A66B87F6222F86B80004263B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A66B87FC2236296D0004263B /* Product.swift */,
+				A68F980122371C3600E145B5 /* UserDataModelAndFunctions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -119,6 +131,9 @@
 			children = (
 				A66B87E3222F84CE0004263B /* ViewController.swift */,
 				A66B87E1222F84CE0004263B /* AppDelegate.swift */,
+				A68F980322371F5C00E145B5 /* LogInViewController.swift */,
+				A68F98052237211500E145B5 /* SignOnViewController.swift */,
+				A68F98072237367500E145B5 /* DashBoardViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -239,7 +254,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A68F980222371C3600E145B5 /* UserDataModelAndFunctions.swift in Sources */,
 				A66B87E4222F84CE0004263B /* ViewController.swift in Sources */,
+				A68F98062237211500E145B5 /* SignOnViewController.swift in Sources */,
+				A68F98082237367500E145B5 /* DashBoardViewController.swift in Sources */,
+				A66B87FD2236296D0004263B /* Product.swift in Sources */,
+				A68F980422371F5C00E145B5 /* LogInViewController.swift in Sources */,
 				A66B87E2222F84CE0004263B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
