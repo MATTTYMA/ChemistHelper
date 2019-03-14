@@ -19,6 +19,8 @@
 		A68F980422371F5C00E145B5 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F980322371F5C00E145B5 /* LogInViewController.swift */; };
 		A68F98062237211500E145B5 /* SignOnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F98052237211500E145B5 /* SignOnViewController.swift */; };
 		A68F98082237367500E145B5 /* DashBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F98072237367500E145B5 /* DashBoardViewController.swift */; };
+		A6EA2659223A474000DD262B /* ProductEnqueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EA2658223A474000DD262B /* ProductEnqueryViewController.swift */; };
+		A6EA265B223A476900DD262B /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EA265A223A476900DD262B /* ShoppingListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		A68F980322371F5C00E145B5 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		A68F98052237211500E145B5 /* SignOnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOnViewController.swift; sourceTree = "<group>"; };
 		A68F98072237367500E145B5 /* DashBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardViewController.swift; sourceTree = "<group>"; };
+		A6EA2658223A474000DD262B /* ProductEnqueryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEnqueryViewController.swift; sourceTree = "<group>"; };
+		A6EA265A223A476900DD262B /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
 		D8EA21F98817992A97B81630 /* Pods-ChemistHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChemistHelper.release.xcconfig"; path = "Target Support Files/Pods-ChemistHelper/Pods-ChemistHelper.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +138,8 @@
 				A68F980322371F5C00E145B5 /* LogInViewController.swift */,
 				A68F98052237211500E145B5 /* SignOnViewController.swift */,
 				A68F98072237367500E145B5 /* DashBoardViewController.swift */,
+				A6EA2658223A474000DD262B /* ProductEnqueryViewController.swift */,
+				A6EA265A223A476900DD262B /* ShoppingListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -259,7 +265,9 @@
 				A68F98062237211500E145B5 /* SignOnViewController.swift in Sources */,
 				A68F98082237367500E145B5 /* DashBoardViewController.swift in Sources */,
 				A66B87FD2236296D0004263B /* Product.swift in Sources */,
+				A6EA265B223A476900DD262B /* ShoppingListViewController.swift in Sources */,
 				A68F980422371F5C00E145B5 /* LogInViewController.swift in Sources */,
+				A6EA2659223A474000DD262B /* ProductEnqueryViewController.swift in Sources */,
 				A66B87E2222F84CE0004263B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

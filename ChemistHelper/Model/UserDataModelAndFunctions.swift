@@ -14,4 +14,5 @@ struct UserDataModelAndFuctions {
     var listOfProducts: [Product] = [Product]()
     
     
+    
 }
