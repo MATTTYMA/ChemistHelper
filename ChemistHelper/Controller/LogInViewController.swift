@@ -15,24 +15,27 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var logInUserName: UITextField!
     @IBOutlet weak var logInPassword: UITextField!
     
+    private let dataBase = DataBase()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
     @IBAction func logInButtonPressed(_ sender: UIButton) {
-        SVProgressHUD.show()
-        
-        Auth.auth().signIn(withEmail: logInUserName.text!, password: logInPassword.text!) { (user, error) in
-            if error != nil {
-                print("Error while log in to firebase \(error!)")
-                // TODO : create log in error alert
-            }else{
+        dataBase.signIn(userName: logInUserName.text!, userPassword: logInPassword.text!) { (errorMessage) in
+            if errorMessage != nil {
+                print("Error occured while creating user: \(errorMessage!)")
+                let alert = UIAlertController(title: "Invaild Sign In", message: errorMessage, preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                self.logInUserName.text = ""
+                self.logInPassword.text = ""
+            } else {
                 self.performSegue(withIdentifier: "goToDash", sender: self)
             }
         }
         
-        SVProgressHUD.dismiss()
     }
     
 }

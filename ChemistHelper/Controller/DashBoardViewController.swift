@@ -13,20 +13,19 @@ import SVProgressHUD
 
 class DashBoardViewController: UIViewController {
     
+    private let dataBase = DataBase()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = Auth.auth().currentUser?.email
+        self.title = dataBase.getCurrentUserName()
         self.navigationItem.setHidesBackButton(true, animated: true)
     }
     
     
     @IBAction func signOutButtonPressed(_ sender: UIBarButtonItem) {
-        do{
-            try Auth.auth().signOut()
-        }
-        catch{
-            print("Error, there was a problem while signing out")
-        }
+        
+        dataBase.signOut()
+        
         guard (navigationController?.popViewController(animated: true)) != nil
             else{
                 print("No View Controller to pop off")
@@ -51,7 +50,7 @@ class DashBoardViewController: UIViewController {
 //            if let error = error {
 //                print("Error while quering data: \(error)")
 //            }else{
-//                SVProgressHUD.show()
+//
 //                if let snapshot = snapshot {
 //
 //                    for document in snapshot.documents{
@@ -60,7 +59,7 @@ class DashBoardViewController: UIViewController {
 //                }else{
 //                    print("Nothing found here")
 //                }
-//                SVProgressHUD.dismiss()
+//            
 //            }
 //
 //        }
