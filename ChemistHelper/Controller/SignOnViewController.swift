@@ -52,7 +52,11 @@ class SignOnViewController: UIViewController {
         if !errorIdentifier{
             generateSignOnAlert(with: "Information Needed", and: "Please Complete High-Lighted field")
         }else{
-            signOn(with: listOfResults)
+            if registerUserPassword.text == registerConfirmPassword.text{
+                generateSignOnAlert(with: "Bad Password", and: "Please make sure you have entered the same password two times")
+            }else{
+                signOn(with: listOfResults)
+            }
         }
     }
     
