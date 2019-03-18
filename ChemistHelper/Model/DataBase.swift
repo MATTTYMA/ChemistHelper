@@ -16,20 +16,20 @@ class DataBase{
     
     // MARK:- Sign On methods
     
-    func signOn(userName: String, userPassword: String, completion: @escaping (String?)->())  {
-        Auth.auth().createUser(withEmail: userName, password: userPassword) { (user, error) in
+    func signOn(_ userEmail: String, _ userPassword: String, _ userNickname: String, completion: @escaping (String?)->())  {
+        Auth.auth().createUser(withEmail: userEmail, password: userPassword) { (user, error) in
             if error != nil {
                 completion(error?.localizedDescription)
             } else {
-                self.createUserData(userName: userName)
+                self.createUserData(userEmailCaptured: userEmail,userNicknameCaptured: userNickname)
                 completion(nil)
             }
         }
     }
     
-    private func createUserData(userName: String){
+    private func createUserData(userEmailCaptured: String, userNicknameCaptured: String){
         let userData: [String:Any] = [
-            "user_name":userName,
+            "user_name":userEmailCaptured,
             "user_shopping_list":[String]()
         ]
         let userRef = dataBase.collection("user")

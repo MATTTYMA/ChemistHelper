@@ -35,7 +35,21 @@ class LogInViewController: UIViewController {
                 self.performSegue(withIdentifier: "goToDash", sender: self)
             }
         }
-        
+    }
+    
+    
+    
+    //MARK:- Highlight and Cancel highlight methods
+    func errorHighlightTextField(textField: UITextField){
+        textField.layer.borderColor = UIColor.red.cgColor
+        textField.layer.borderWidth = 1
+        textField.layer.cornerRadius = 5
+    }
+    
+    func removeErrorHighlightTextField(textField: UITextField){
+        textField.layer.borderColor = UIColor.gray.cgColor
+        textField.layer.borderWidth = 0
+        textField.layer.cornerRadius = 5
     }
     
 }

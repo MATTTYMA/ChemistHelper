@@ -79,20 +79,32 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AdZ-Kj-gDr">
                                 <rect key="frame" x="0.0" y="88" width="414" height="474"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Osy-L4-wcc">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Osy-L4-wcc">
                                         <rect key="frame" x="16" y="88" width="382" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GGN-9E-aiL">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Create Your Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GGN-9E-aiL">
                                         <rect key="frame" x="16" y="134" width="382" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Your Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dhj-bG-nvt">
+                                        <rect key="frame" x="16" y="180" width="382" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Nickname " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V6l-9v-kdJ">
+                                        <rect key="frame" x="16" y="226" width="382" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9d0-Q3-o8F">
-                                        <rect key="frame" x="16" y="180" width="382" height="30"/>
+                                        <rect key="frame" x="16" y="272" width="382" height="30"/>
                                         <color key="backgroundColor" red="0.21176470588235294" green="0.77254901960784317" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="SIGN ON">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -104,17 +116,23 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="9d0-Q3-o8F" firstAttribute="top" secondItem="GGN-9E-aiL" secondAttribute="bottom" constant="16" id="4QS-2H-6jZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="9d0-Q3-o8F" secondAttribute="bottom" constant="264" id="LFv-55-A8f"/>
+                                    <constraint firstItem="Dhj-bG-nvt" firstAttribute="leading" secondItem="AdZ-Kj-gDr" secondAttribute="leading" constant="16" id="AdA-Lb-FkX"/>
+                                    <constraint firstAttribute="trailing" secondItem="Dhj-bG-nvt" secondAttribute="trailing" constant="16" id="Fqy-YD-TM5"/>
+                                    <constraint firstItem="9d0-Q3-o8F" firstAttribute="top" secondItem="V6l-9v-kdJ" secondAttribute="bottom" constant="16" id="Lek-ui-df4"/>
+                                    <constraint firstAttribute="trailing" secondItem="V6l-9v-kdJ" secondAttribute="trailing" constant="16" id="MJQ-7l-RHU"/>
+                                    <constraint firstAttribute="trailing" secondItem="9d0-Q3-o8F" secondAttribute="trailing" constant="16" id="NkI-TW-bS6"/>
                                     <constraint firstItem="GGN-9E-aiL" firstAttribute="top" secondItem="Osy-L4-wcc" secondAttribute="bottom" constant="16" id="QHu-S9-09q"/>
                                     <constraint firstItem="GGN-9E-aiL" firstAttribute="top" secondItem="Osy-L4-wcc" secondAttribute="bottom" constant="16" id="S2O-mN-Uog"/>
-                                    <constraint firstItem="9d0-Q3-o8F" firstAttribute="leading" secondItem="AdZ-Kj-gDr" secondAttribute="leading" constant="16" id="WeS-D6-AUY"/>
+                                    <constraint firstItem="9d0-Q3-o8F" firstAttribute="leading" secondItem="AdZ-Kj-gDr" secondAttribute="leading" constant="16" id="Vfq-w4-eqn"/>
+                                    <constraint firstItem="V6l-9v-kdJ" firstAttribute="leading" secondItem="AdZ-Kj-gDr" secondAttribute="leading" constant="16" id="Zir-MS-Lu1"/>
+                                    <constraint firstItem="V6l-9v-kdJ" firstAttribute="top" secondItem="Dhj-bG-nvt" secondAttribute="bottom" constant="16" id="bYk-Am-Mz0"/>
+                                    <constraint firstItem="Dhj-bG-nvt" firstAttribute="top" secondItem="GGN-9E-aiL" secondAttribute="bottom" constant="16" id="fqr-ag-PcS"/>
                                     <constraint firstItem="Osy-L4-wcc" firstAttribute="top" secondItem="AdZ-Kj-gDr" secondAttribute="top" constant="88" id="h5u-aS-Viv"/>
                                     <constraint firstItem="Osy-L4-wcc" firstAttribute="leading" secondItem="AdZ-Kj-gDr" secondAttribute="leading" constant="16" id="jaz-Ll-wY1"/>
                                     <constraint firstAttribute="trailing" secondItem="Osy-L4-wcc" secondAttribute="trailing" constant="16" id="lZf-42-ccm"/>
                                     <constraint firstItem="GGN-9E-aiL" firstAttribute="leading" secondItem="AdZ-Kj-gDr" secondAttribute="leading" constant="16" id="nWL-sl-0Cj"/>
                                     <constraint firstAttribute="trailing" secondItem="GGN-9E-aiL" secondAttribute="trailing" constant="16" id="rCS-Ug-Y91"/>
-                                    <constraint firstAttribute="trailing" secondItem="9d0-Q3-o8F" secondAttribute="trailing" constant="16" id="wba-Qw-WNK"/>
+                                    <constraint firstAttribute="bottom" secondItem="9d0-Q3-o8F" secondAttribute="bottom" constant="172" id="zeZ-qX-0Og"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -133,7 +151,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Sign On" id="p3w-sk-M4p"/>
                     <connections>
-                        <outlet property="registerUserName" destination="Osy-L4-wcc" id="VJm-V2-90g"/>
+                        <outlet property="registerConfirmPassword" destination="Dhj-bG-nvt" id="wJi-KO-yiQ"/>
+                        <outlet property="registerNickname" destination="V6l-9v-kdJ" id="JcT-P8-h7U"/>
+                        <outlet property="registerUserEmail" destination="Osy-L4-wcc" id="VJm-V2-90g"/>
                         <outlet property="registerUserPassword" destination="GGN-9E-aiL" id="s8J-O3-q8A"/>
                         <segue destination="0yD-6n-H0i" kind="show" identifier="goToDash" id="y5T-9E-ljn"/>
                     </connections>
@@ -346,6 +366,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7Gf-Zk-lQY"/>
+        <segue reference="y5T-9E-ljn"/>
     </inferredMetricsTieBreakers>
 </document>
