@@ -52,7 +52,7 @@ class SignOnViewController: UIViewController {
         if !errorIdentifier{
             generateSignOnAlert(with: "Information Needed", and: "Please Complete High-Lighted field")
         }else{
-            if registerUserPassword.text == registerConfirmPassword.text{
+            if registerUserPassword.text != registerConfirmPassword.text{
                 generateSignOnAlert(with: "Bad Password", and: "Please make sure you have entered the same password two times")
             }else{
                 signOn(with: listOfResults)
@@ -84,6 +84,8 @@ class SignOnViewController: UIViewController {
                 self.generateSignOnAlert(with: "Invaild Sign ON", and: errorMessage!)
                 self.registerUserEmail.text = ""
                 self.registerUserPassword.text = ""
+                self.registerConfirmPassword.text = ""
+                self.registerNickname.text = ""
             } else {
                 self.performSegue(withIdentifier: "goToDash", sender: self)
             }

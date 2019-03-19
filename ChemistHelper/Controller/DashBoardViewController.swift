@@ -17,7 +17,11 @@ class DashBoardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = dataBase.getCurrentUserName()
+        dataBase.getCurrentUserName { (user) in
+            if let userName = user{
+                self.title = userName
+            }
+        }
         self.navigationItem.setHidesBackButton(true, animated: true)
     }
     
@@ -41,31 +45,6 @@ class DashBoardViewController: UIViewController {
         self.performSegue(withIdentifier: "goToShoppingList", sender: self)
     }
     
-    //    @IBAction func testSearchButtonPressed(_ sender: Any) {
-//
-//        let productDB = Firestore.firestore()
-//        let productRef = productDB.collection("Products").document("ChemistWarehouse").collection("product_list")
-//        let query = productRef.whereField("product_name", isEqualTo: testInPut.text!)
-//        query.getDocuments { (snapshot, error) in
-//            if let error = error {
-//                print("Error while quering data: \(error)")
-//            }else{
-//
-//                if let snapshot = snapshot {
-//
-//                    for document in snapshot.documents{
-//                        print(document.data()["product_name"] as! String)
-//                    }
-//                }else{
-//                    print("Nothing found here")
-//                }
-//            
-//            }
-//
-//        }
-//
-//
-//    }
-//
+
     
 }

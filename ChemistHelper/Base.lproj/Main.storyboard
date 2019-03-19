@@ -229,7 +229,7 @@
                     <navigationItem key="navigationItem" title="Log In" id="sKT-m8-A7n"/>
                     <connections>
                         <outlet property="logInPassword" destination="I6L-q5-AS9" id="Fay-CU-fyx"/>
-                        <outlet property="logInUserName" destination="0GJ-Ko-tD3" id="O2P-qo-q7P"/>
+                        <outlet property="logInUserEmail" destination="0GJ-Ko-tD3" id="O2P-qo-q7P"/>
                         <segue destination="0yD-6n-H0i" kind="show" identifier="goToDash" id="ZFy-mK-dHv"/>
                     </connections>
                 </viewController>
