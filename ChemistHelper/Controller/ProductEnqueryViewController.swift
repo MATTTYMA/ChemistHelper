@@ -30,17 +30,7 @@ class ProductEnqueryViewController: UITableViewController, UISearchBarDelegate {
     }
     
    
-    //MARK:- debug button
-    @IBAction func testPressed(_ sender: UIBarButtonItem) {
-        
-        database.searchProduct("Gaia") { (result) in
-            if let result = result{
-                self.productArray = result
-                self.tableView.reloadData()
-            }
-        }
-
-    }
+    //MARK:- Searching Bar Method
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         SVProgressHUD.show()
@@ -62,6 +52,7 @@ class ProductEnqueryViewController: UITableViewController, UISearchBarDelegate {
         tableView.separatorStyle = .singleLine
     }
     
+    //MARK:- Tableview delegate methods
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customProductCell", for: indexPath) as! CustomProductCell
         cell.productName.text = productArray[indexPath.row].getName()
@@ -73,7 +64,7 @@ class ProductEnqueryViewController: UITableViewController, UISearchBarDelegate {
         return cell
     }
     
-    
+    //MARK:- Tableview DataSource Methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return productArray.count
     }
