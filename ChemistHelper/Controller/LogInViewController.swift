@@ -8,7 +8,6 @@
 
 import UIKit
 import SVProgressHUD
-import Firebase
 
 class LogInViewController: UIViewController {
 

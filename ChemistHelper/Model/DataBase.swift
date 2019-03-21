@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import FirebaseFirestore
+import SVProgressHUD
 
 class DataBase{
     
@@ -17,7 +18,7 @@ class DataBase{
     // MARK:- Sign On methods
     
     func signOn(_ userEmail: String, _ userPassword: String, _ userNickname: String, completion: @escaping (String?)->())  {
-        self.userNameExists(userNickName: userNickname) { (error) in
+        self.userNameExists(userNickname) { (error) in
             if let userNameExistError = error{
                 completion(userNameExistError)
             }else{
@@ -46,7 +47,7 @@ class DataBase{
         }
     }
     
-    private func userNameExists(userNickName: String, completion: @escaping (String?)->()) {
+    private func userNameExists(_ userNickName: String, completion: @escaping (String?)->()) {
         let userNameRef = dataBase.collection("users")
         let query = userNameRef.whereField("user_name", isEqualTo: userNickName)
         query.getDocuments { (snapshot, error) in
@@ -129,5 +130,64 @@ class DataBase{
         }
     }
     
+    
+    //MARK:- retailer enquery methods
+    
+    private func enqueryRetailer(completion: @escaping ([String]?)->()) {
+        var retailerList:[String] = [String]()
+        dataBase.collection("products").getDocuments{ (querySnapshot, error) in
+            if let error = error {
+                print("Error while querying document id: \(error)")
+                completion(nil)
+            }else{
+                if let snapshot = querySnapshot{
+                    for document in snapshot.documents{
+                        retailerList.append(document.data()["name"] as! String)
+                        print(document.data()["name"] as! String)
+                    }
+                    completion(retailerList)
+                }else{
+                    completion(nil)
+                }
+            }
+        }
+    }
+    
+    //MARK:- Product enquery metods
+    
+    func searchProduct(_ productNameQueried: String, completion: @escaping ([Product]?)->()) {
+        var resultList: [Product] = [Product]()
+        enqueryRetailer { (listOfRetailer) in
+            if let listOfRetailer = listOfRetailer{
+                for member in listOfRetailer{
+                    let productQueryRef = self.dataBase.collection("products").document(member).collection("product_list")
+                    let query = productQueryRef.whereField("key_words", arrayContains: productNameQueried)
+                    query.getDocuments(completion: { (snapShot, error) in
+                        if let error = error {
+                            print("Error while querying products: \(error)")
+                            completion(nil)
+                        }else{
+                            if let productSnapShot = snapShot{
+                                for document in productSnapShot.documents{
+                                    let productName = document.data()["product_name"]
+                                    let productPrice = document.data()["product_price"]
+                                    let productShopURL = document.data()["shop_url"]
+                                    let productImageURL = document.data()["image_url"]
+                                    let productCategories = document.data()["categories"]
+                                    let prorductRetailer = document.data()["retailer"]
+                                    let newProduct = Product(productName: productName as! String, productPrice: productPrice as! String, productImageURL: productImageURL as! String, productShoppingURL: productShopURL as! String, productCategories: productCategories as! [String], productRetailer: prorductRetailer as! String)
+                                    resultList.append(newProduct)
+                                }
+                                completion(resultList)
+                            }else{
+                                completion(nil)
+                            }
+                        }
+                    })
+                    
+                }
+            }
+        }
+    }
     
 }

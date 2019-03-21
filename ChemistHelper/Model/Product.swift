@@ -8,21 +8,71 @@
 
 import Foundation
 
-struct Product {
+class Product {
     
-    private var productName : String
+    private var name : String?
+    private var imageURL : String?
+    private var price : String?
+    private var shoppingURL : String?
+    private var categories : [String]?
+    private var retailer: String?
     
-    private var productImageURL : String
+    init(productName: String, productPrice:String, productImageURL: String, productShoppingURL: String, productCategories:[String], productRetailer: String) {
+        self.name = productName
+        self.price = productPrice
+        self.imageURL = productImageURL
+        self.shoppingURL = productShoppingURL
+        self.categories = productCategories
+        self.retailer = productRetailer
+    }
     
-    private var productPrice : Int
+    func getName() -> String {
+        if let name = self.name{
+            return name
+        }
+        else{
+            return "Unknown Name"
+        }
+    }
     
-    private var productShoppingURL : String
+    func getPrice() -> String{
+        if let price = self.price{
+            return price
+        }else{
+            return "Unknow Price"
+        }
+    }
     
-    private var productSource : String
+    func getImageURL() -> String? {
+        if let imageUrl = self.imageURL{
+            return imageUrl
+        }else{
+            return nil
+        }
+    }
     
+    func getShoppingURL() -> String?{
+        if let shoppingUrl = self.shoppingURL{
+            return shoppingUrl
+        }else{
+            return "Unknow URL"
+        }
+    }
     
-    mutating func setPrice(at price: Int){
-        productPrice = price
+    func getCategories() -> [String]? {
+        if let productCategories = self.categories{
+            return productCategories
+        }else{
+            return nil
+        }
+    }
+    
+    func getRetailer() -> String {
+        if let productRetailer = self.retailer{
+            return productRetailer
+        }else{
+            return "Unknown Retailer"
+        }
     }
     
 }

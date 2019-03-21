@@ -8,8 +8,6 @@
 
 import UIKit
 import SVProgressHUD
-import Firebase
-import FirebaseFirestore
 
 class SignOnViewController: UIViewController {
 

@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import FirebaseFirestore
-import Firebase
 import SVProgressHUD
 
 class DashBoardViewController: UIViewController {
@@ -37,7 +35,7 @@ class DashBoardViewController: UIViewController {
         }
     }
     
-    @IBAction func goToProductEnqueryButtonPressed(_ sender: Any) {
+    @IBAction func goToProductEnqueryButtonPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "goToProductEnquery", sender: self)
     }
     

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3EB8C0D509DBB6D1B0494B92 /* Pods_ChemistHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84769D28CC6B4DEE0C79F904 /* Pods_ChemistHelper.framework */; };
+		A606BF922241AC8200CC072B /* CustomProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A606BF902241AC8200CC072B /* CustomProductCell.swift */; };
+		A606BF932241AC8200CC072B /* CustomProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A606BF912241AC8200CC072B /* CustomProductCell.xib */; };
 		A63AB374223B7836001C69B3 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63AB373223B7836001C69B3 /* DataBase.swift */; };
 		A66B87E2222F84CE0004263B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66B87E1222F84CE0004263B /* AppDelegate.swift */; };
 		A66B87E4222F84CE0004263B /* WelcomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66B87E3222F84CE0004263B /* WelcomViewController.swift */; };
@@ -16,7 +18,6 @@
 		A66B87EC222F84D00004263B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A66B87EA222F84D00004263B /* LaunchScreen.storyboard */; };
 		A66B87F5222F85500004263B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A66B87F4222F85500004263B /* GoogleService-Info.plist */; };
 		A66B87FD2236296D0004263B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66B87FC2236296D0004263B /* Product.swift */; };
-		A68F980222371C3600E145B5 /* UserDataModelAndFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F980122371C3600E145B5 /* UserDataModelAndFunctions.swift */; };
 		A68F980422371F5C00E145B5 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F980322371F5C00E145B5 /* LogInViewController.swift */; };
 		A68F98062237211500E145B5 /* SignOnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F98052237211500E145B5 /* SignOnViewController.swift */; };
 		A68F98082237367500E145B5 /* DashBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F98072237367500E145B5 /* DashBoardViewController.swift */; };
@@ -27,6 +28,8 @@
 /* Begin PBXFileReference section */
 		71F2252C473903E1B04284F8 /* Pods-ChemistHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChemistHelper.debug.xcconfig"; path = "Target Support Files/Pods-ChemistHelper/Pods-ChemistHelper.debug.xcconfig"; sourceTree = "<group>"; };
 		84769D28CC6B4DEE0C79F904 /* Pods_ChemistHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChemistHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A606BF902241AC8200CC072B /* CustomProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProductCell.swift; sourceTree = "<group>"; };
+		A606BF912241AC8200CC072B /* CustomProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomProductCell.xib; sourceTree = "<group>"; };
 		A63AB373223B7836001C69B3 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		A66B87DE222F84CE0004263B /* ChemistHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChemistHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A66B87E1222F84CE0004263B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -37,7 +40,6 @@
 		A66B87ED222F84D00004263B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A66B87F4222F85500004263B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A66B87FC2236296D0004263B /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
-		A68F980122371C3600E145B5 /* UserDataModelAndFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModelAndFunctions.swift; sourceTree = "<group>"; };
 		A68F980322371F5C00E145B5 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		A68F98052237211500E145B5 /* SignOnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOnViewController.swift; sourceTree = "<group>"; };
 		A68F98072237367500E145B5 /* DashBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,15 @@
 				D8EA21F98817992A97B81630 /* Pods-ChemistHelper.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		A606BF872240A57800CC072B /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				A606BF902241AC8200CC072B /* CustomProductCell.swift */,
+				A606BF912241AC8200CC072B /* CustomProductCell.xib */,
+			);
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 		A66B87D5222F84CE0004263B = {
@@ -118,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				A66B87FC2236296D0004263B /* Product.swift */,
-				A68F980122371C3600E145B5 /* UserDataModelAndFunctions.swift */,
 				A63AB373223B7836001C69B3 /* DataBase.swift */,
 			);
 			path = Model;
@@ -127,6 +137,7 @@
 		A66B87F7222F86C40004263B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A606BF872240A57800CC072B /* CustomCells */,
 				A66B87E5222F84CE0004263B /* Main.storyboard */,
 				A66B87EA222F84D00004263B /* LaunchScreen.storyboard */,
 			);
@@ -209,6 +220,7 @@
 			files = (
 				A66B87EC222F84D00004263B /* LaunchScreen.storyboard in Resources */,
 				A66B87F5222F85500004263B /* GoogleService-Info.plist in Resources */,
+				A606BF932241AC8200CC072B /* CustomProductCell.xib in Resources */,
 				A66B87E9222F84D00004263B /* Assets.xcassets in Resources */,
 				A66B87E7222F84CE0004263B /* Main.storyboard in Resources */,
 			);
@@ -264,11 +276,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A63AB374223B7836001C69B3 /* DataBase.swift in Sources */,
-				A68F980222371C3600E145B5 /* UserDataModelAndFunctions.swift in Sources */,
 				A66B87E4222F84CE0004263B /* WelcomViewController.swift in Sources */,
 				A68F98062237211500E145B5 /* SignOnViewController.swift in Sources */,
 				A68F98082237367500E145B5 /* DashBoardViewController.swift in Sources */,
 				A66B87FD2236296D0004263B /* Product.swift in Sources */,
+				A606BF922241AC8200CC072B /* CustomProductCell.swift in Sources */,
 				A6EA265B223A476900DD262B /* ShoppingListViewController.swift in Sources */,
 				A68F980422371F5C00E145B5 /* LogInViewController.swift in Sources */,
 				A6EA2659223A474000DD262B /* ProductEnqueryViewController.swift in Sources */,
