@@ -43,14 +43,14 @@ class ProductEnqueryViewController: UITableViewController, UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        SVProgressHUD.show()
         database.searchProduct(searchBar.text!) { (result) in
-            SVProgressHUD.show()
             if let resultObtained = result{
                 self.productArray = resultObtained
                 self.tableView.reloadData()
             }
-            SVProgressHUD.dismiss()
         }
+        SVProgressHUD.dismiss()
     }
     
     
