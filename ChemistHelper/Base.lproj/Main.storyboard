@@ -346,13 +346,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="D7C-KZ-1dc">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="tJk-xR-plK">
-                            <connections>
-                                <action selector="testPressed:" destination="Erm-Bv-VOY" id="ttx-e1-zZp"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Title" id="D7C-KZ-1dc"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchBar" destination="iyo-b3-2Jc" id="SOD-M5-HHs"/>
