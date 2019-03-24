@@ -11,10 +11,8 @@ import SwipeCellKit
 import SDWebImage
 import SVProgressHUD
 
-class ProductEnqueryViewController: UITableViewController, UISearchBarDelegate {
-    
-    
-    
+class ProductEnqueryViewController: UITableViewController, UISearchBarDelegate, SwipeTableViewCellDelegate {
+   
     private let database = DataBase()
     private var productArray: [Product] = [Product]()
     
@@ -55,6 +53,7 @@ class ProductEnqueryViewController: UITableViewController, UISearchBarDelegate {
     //MARK:- Tableview delegate methods
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customProductCell", for: indexPath) as! CustomProductCell
+        cell.delegate = self
         cell.productName.text = productArray[indexPath.row].getName()
         cell.productPrice.text = productArray[indexPath.row].getPrice()
         cell.productRetailer.text = productArray[indexPath.row].getRetailer()
@@ -69,6 +68,22 @@ class ProductEnqueryViewController: UITableViewController, UISearchBarDelegate {
         return productArray.count
     }
     
-   
+    
+    //MARK:- SwipeTableViewCell delegate methods
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else {return nil}
+        
+        let visitShopURL = SwipeAction(style: .default, title: "Visit Shop") { (action, indexPath) in
+            print("visiting shop")
+            //TODO: visit shop function
+        }
+        let addToShoppingList = SwipeAction(style: .default, title: "addToShoppingList") { (action, indexPath) in
+            print("add to shopping list")
+            //TODO: add to shopping list
+        }
+        return [visitShopURL]
+    }
+    
+    
 
 }

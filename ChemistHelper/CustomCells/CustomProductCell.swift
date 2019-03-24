@@ -9,7 +9,7 @@
 import UIKit
 import SwipeCellKit
 
-class CustomProductCell: UITableViewCell{
+class CustomProductCell: SwipeTableViewCell {
 
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productName: UILabel!
