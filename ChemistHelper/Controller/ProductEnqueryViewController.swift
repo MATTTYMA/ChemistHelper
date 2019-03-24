@@ -81,7 +81,7 @@ class ProductEnqueryViewController: UITableViewController, UISearchBarDelegate, 
             print("add to shopping list")
             //TODO: add to shopping list
         }
-        return [visitShopURL]
+        return [visitShopURL, addToShoppingList]
     }
     
     
