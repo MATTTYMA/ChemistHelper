@@ -51,7 +51,7 @@ class Product {
         }
     }
     
-    func getShoppingURL() -> String?{
+    func getShoppingURL() -> String{
         if let shoppingUrl = self.shoppingURL{
             return shoppingUrl
         }else{
@@ -73,6 +73,18 @@ class Product {
         }else{
             return "Unknown Retailer"
         }
+    }
+    
+    func castToDictionary() -> [String:Any] {
+        let dict = [
+            "product_name": self.getName(),
+            "price_at_the_moment": self.getPrice(),
+            "retailer": self.getRetailer(),
+            "categories": self.getCategories()!,
+            "shop_url": self.getShoppingURL(),
+            "image_url": self.getImageURL()!,
+            ] as [String : Any]
+        return dict
     }
     
 }

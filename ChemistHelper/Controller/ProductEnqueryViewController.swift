@@ -72,7 +72,6 @@ class ProductEnqueryViewController: UITableViewController, UISearchBarDelegate, 
     //MARK:- SwipeTableViewCell delegate methods
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else {return nil}
-        
         let visitShopURL = SwipeAction(style: .default, title: "Visit Shop") { (action, indexPath) in
             print("visiting shop")
             //TODO: visit shop function
@@ -80,10 +79,30 @@ class ProductEnqueryViewController: UITableViewController, UISearchBarDelegate, 
         let addToShoppingList = SwipeAction(style: .default, title: "addToShoppingList") { (action, indexPath) in
             print("add to shopping list")
             //TODO: add to shopping list
+            self.addToShoppingListPressed(on: indexPath)
         }
         return [visitShopURL, addToShoppingList]
     }
     
+    //MARK:- add to shopping list methods
     
+    func addToShoppingListPressed(on indexPath: IndexPath) {
+        var textField = UITextField()
+        let alert = UIAlertController(title: "Quantity", message: "Enter the quantity you need to buy", preferredStyle: .alert)
+        let addAction = UIAlertAction(title: "Add To Shopping List", style: .default) { (action) in
+            //TODO: add to firebase users/shoppinglist
+            if let quantity = textField.text{
+                self.database.addToShoppingList(prodcut: self.productArray[indexPath.row], quantity: Int(quantity) ?? 1)
+            }
+        }
+        let dismissAction = UIAlertAction(title:"Dismiss", style: .destructive, handler: nil)
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Product of Quantity"
+            textField = alertTextField
+        }
+        alert.addAction(addAction)
+        alert.addAction(dismissAction)
+        present(alert, animated: true, completion: nil)
+    }
 
 }

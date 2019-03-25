@@ -40,7 +40,7 @@ class DataBase{
             "user_name": userNicknameCaptured
         ]
         let userRef = dataBase.collection("users")
-        userRef.document().setData(userData) { (error) in
+        userRef.document(userEmailCaptured).setData(userData) { (error) in
             if let err = error{
                 print("Error occured while creating user Data: \(err)")
             }
@@ -187,6 +187,18 @@ class DataBase{
                     
                 }
             }
+        }
+    }
+    
+    //MARK:- add to shopping list method
+    
+    func addToShoppingList(prodcut: Product, quantity: Int) {
+        var data : [String : Any] = prodcut.castToDictionary()
+        data["quantity"] = quantity
+        if let currentUserEmail = Auth.auth().currentUser?.email{
+            let userRef = dataBase.collection("users").document(currentUserEmail).collection("shopping_list_by_retailers").document(data["retailer"] as! String).collection("shopping_list").document(data["product_name"] as! String)
+            userRef.setData(data)
+
         }
     }
     
