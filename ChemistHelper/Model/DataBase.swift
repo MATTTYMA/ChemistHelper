@@ -197,9 +197,23 @@ class DataBase{
         data["quantity"] = quantity
         if let currentUserEmail = Auth.auth().currentUser?.email{
             let userRef = dataBase.collection("users").document(currentUserEmail).collection("shopping_list_by_retailers").document(data["retailer"] as! String).collection("shopping_list").document(data["product_name"] as! String)
-            userRef.setData(data)
-
+            userRef.getDocument { (docSnapshot, error) in
+                if let error = error {
+                    print("Error occured while reading shopping list: \(error)")
+                }else{
+                    if let existDocSnapshot = docSnapshot {
+                        if let docData = existDocSnapshot.data(){
+                            let newQuantity = docData["quantity"] as! Int + quantity
+                            userRef.updateData(["quantity":newQuantity])
+                        }else{
+                            userRef.setData(data)
+                        }
+                    }
+                }
+            }
         }
     }
+    
+    
     
 }

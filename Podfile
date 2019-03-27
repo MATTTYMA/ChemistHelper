@@ -11,7 +11,7 @@ target 'ChemistHelper' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'SVProgressHUD'
-  pod 'SwipeCellKit'
+  pod 'SwipeCellKit', :git => 'https://github.com/SwipeCellKit/SwipeCellKit.git', :branch => 'xcode_10.2'
   pod 'SDWebImage'
   
 end
