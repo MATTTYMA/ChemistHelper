@@ -131,7 +131,7 @@ class DataBase{
     }
     
     
-    //MARK:- retailer enquery methods
+    //MARK:- retailer in product dataBase enquery methods
     
     private func enqueryRetailer(completion: @escaping ([String]?)->()) {
         var retailerList:[String] = [String]()
@@ -153,7 +153,7 @@ class DataBase{
         }
     }
     
-    //MARK:- Product enquery metods
+    //MARK:- Product in product database enquery metods
     
     func searchProduct(_ productNameQueried: String, completion: @escaping ([Product]?)->()) {
         var resultList: [Product] = [Product]()
@@ -196,6 +196,14 @@ class DataBase{
         var data : [String : Any] = prodcut.castToDictionary()
         data["quantity"] = quantity
         if let currentUserEmail = Auth.auth().currentUser?.email{
+            let retailerRef = dataBase.collection("users").document(currentUserEmail).collection("shopping_list_by_retailers").document(data["retailer"] as! String)
+            retailerRef.getDocument { (snapShot, error) in
+                if let error = error{
+                    print("Error while enquerying user's Retailer list: \(error)")
+                }else{
+                    retailerRef.setData(["name": data["retailer"] as! String])
+                }
+            }
             let userRef = dataBase.collection("users").document(currentUserEmail).collection("shopping_list_by_retailers").document(data["retailer"] as! String).collection("shopping_list").document(data["product_name"] as! String)
             userRef.getDocument { (docSnapshot, error) in
                 if let error = error {
@@ -213,6 +221,10 @@ class DataBase{
             }
         }
     }
+    
+    //MARK:- Equery
+    
+    
     
     
     

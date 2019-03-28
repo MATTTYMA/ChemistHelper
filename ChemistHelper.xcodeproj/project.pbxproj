@@ -10,6 +10,7 @@
 		3EB8C0D509DBB6D1B0494B92 /* Pods_ChemistHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84769D28CC6B4DEE0C79F904 /* Pods_ChemistHelper.framework */; };
 		A606BF922241AC8200CC072B /* CustomProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A606BF902241AC8200CC072B /* CustomProductCell.swift */; };
 		A606BF932241AC8200CC072B /* CustomProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A606BF912241AC8200CC072B /* CustomProductCell.xib */; };
+		A6248F99224CC3A30066172E /* ShoppingListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6248F98224CC3A30066172E /* ShoppingListItem.swift */; };
 		A63AB374223B7836001C69B3 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63AB373223B7836001C69B3 /* DataBase.swift */; };
 		A66B87E2222F84CE0004263B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66B87E1222F84CE0004263B /* AppDelegate.swift */; };
 		A66B87E4222F84CE0004263B /* WelcomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66B87E3222F84CE0004263B /* WelcomViewController.swift */; };
@@ -22,7 +23,7 @@
 		A68F98062237211500E145B5 /* SignOnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F98052237211500E145B5 /* SignOnViewController.swift */; };
 		A68F98082237367500E145B5 /* DashBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F98072237367500E145B5 /* DashBoardViewController.swift */; };
 		A6EA2659223A474000DD262B /* ProductEnqueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EA2658223A474000DD262B /* ProductEnqueryViewController.swift */; };
-		A6EA265B223A476900DD262B /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EA265A223A476900DD262B /* ShoppingListViewController.swift */; };
+		A6EA265B223A476900DD262B /* ShoppingListByRetailerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EA265A223A476900DD262B /* ShoppingListByRetailerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		84769D28CC6B4DEE0C79F904 /* Pods_ChemistHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChemistHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A606BF902241AC8200CC072B /* CustomProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProductCell.swift; sourceTree = "<group>"; };
 		A606BF912241AC8200CC072B /* CustomProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomProductCell.xib; sourceTree = "<group>"; };
+		A6248F98224CC3A30066172E /* ShoppingListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListItem.swift; sourceTree = "<group>"; };
 		A63AB373223B7836001C69B3 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		A66B87DE222F84CE0004263B /* ChemistHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChemistHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A66B87E1222F84CE0004263B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,7 +46,7 @@
 		A68F98052237211500E145B5 /* SignOnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOnViewController.swift; sourceTree = "<group>"; };
 		A68F98072237367500E145B5 /* DashBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardViewController.swift; sourceTree = "<group>"; };
 		A6EA2658223A474000DD262B /* ProductEnqueryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEnqueryViewController.swift; sourceTree = "<group>"; };
-		A6EA265A223A476900DD262B /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
+		A6EA265A223A476900DD262B /* ShoppingListByRetailerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListByRetailerViewController.swift; sourceTree = "<group>"; };
 		D8EA21F98817992A97B81630 /* Pods-ChemistHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChemistHelper.release.xcconfig"; path = "Target Support Files/Pods-ChemistHelper/Pods-ChemistHelper.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +132,7 @@
 			children = (
 				A66B87FC2236296D0004263B /* Product.swift */,
 				A63AB373223B7836001C69B3 /* DataBase.swift */,
+				A6248F98224CC3A30066172E /* ShoppingListItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -153,7 +156,7 @@
 				A68F98052237211500E145B5 /* SignOnViewController.swift */,
 				A68F98072237367500E145B5 /* DashBoardViewController.swift */,
 				A6EA2658223A474000DD262B /* ProductEnqueryViewController.swift */,
-				A6EA265A223A476900DD262B /* ShoppingListViewController.swift */,
+				A6EA265A223A476900DD262B /* ShoppingListByRetailerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -277,12 +280,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A63AB374223B7836001C69B3 /* DataBase.swift in Sources */,
+				A6248F99224CC3A30066172E /* ShoppingListItem.swift in Sources */,
 				A66B87E4222F84CE0004263B /* WelcomViewController.swift in Sources */,
 				A68F98062237211500E145B5 /* SignOnViewController.swift in Sources */,
 				A68F98082237367500E145B5 /* DashBoardViewController.swift in Sources */,
 				A66B87FD2236296D0004263B /* Product.swift in Sources */,
 				A606BF922241AC8200CC072B /* CustomProductCell.swift in Sources */,
-				A6EA265B223A476900DD262B /* ShoppingListViewController.swift in Sources */,
+				A6EA265B223A476900DD262B /* ShoppingListByRetailerViewController.swift in Sources */,
 				A68F980422371F5C00E145B5 /* LogInViewController.swift in Sources */,
 				A6EA2659223A474000DD262B /* ProductEnqueryViewController.swift in Sources */,
 				A66B87E2222F84CE0004263B /* AppDelegate.swift in Sources */,

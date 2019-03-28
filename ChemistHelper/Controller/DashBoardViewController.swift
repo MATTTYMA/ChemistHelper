@@ -40,7 +40,7 @@ class DashBoardViewController: UIViewController {
     }
     
     @IBAction func goToShoppingListButtonPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "goToShoppingList", sender: self)
+        self.performSegue(withIdentifier: "goToRetailerList", sender: self)
     }
     
 

@@ -7,9 +7,10 @@ target 'ChemistHelper' do
 
   # Pods for ChemistHelper
   pod 'Firebase/Core'
-  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestore'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'Firebase'
   pod 'SVProgressHUD'
   pod 'SwipeCellKit', :git => 'https://github.com/SwipeCellKit/SwipeCellKit.git', :branch => 'xcode_10.2'
   pod 'SDWebImage'
