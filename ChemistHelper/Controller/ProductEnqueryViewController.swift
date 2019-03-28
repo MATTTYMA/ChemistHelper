@@ -30,28 +30,33 @@ class ProductEnqueryViewController: UITableViewController, UISearchBarDelegate, 
    
     //MARK:- Searching Bar Method
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    internal func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         SVProgressHUD.show()
         database.searchProduct(searchBar.text!) { (result) in
             if let resultObtained = result{
                 self.productArray = resultObtained
                 self.tableView.reloadData()
             }
+            SVProgressHUD.dismiss()
         }
-        SVProgressHUD.dismiss()
     }
     
     
     
     //MARK:- tableview Configuration Method
-    func configureTableView() {
+    private func configureTableView() {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150.0
         tableView.separatorStyle = .singleLine
     }
     
     //MARK:- Tableview delegate methods
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    internal override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    //MARK:- Tableview DataSource Methods
+    internal override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customProductCell", for: indexPath) as! CustomProductCell
         cell.delegate = self
         cell.productName.text = productArray[indexPath.row].getName()
@@ -63,14 +68,13 @@ class ProductEnqueryViewController: UITableViewController, UISearchBarDelegate, 
         return cell
     }
     
-    //MARK:- Tableview DataSource Methods
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    internal override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return productArray.count
     }
     
     
     //MARK:- SwipeTableViewCell delegate methods
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+    internal func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else {return nil}
         let visitShopURL = SwipeAction(style: .default, title: "Visit Shop") { (action, indexPath) in
             print("visiting shop")
@@ -86,7 +90,7 @@ class ProductEnqueryViewController: UITableViewController, UISearchBarDelegate, 
     
     //MARK:- add to shopping list methods
     
-    func addToShoppingListPressed(on indexPath: IndexPath) {
+    internal func addToShoppingListPressed(on indexPath: IndexPath) {
         var textField = UITextField()
         let alert = UIAlertController(title: "Quantity", message: "Enter the quantity you need to buy", preferredStyle: .alert)
         let addAction = UIAlertAction(title: "Add To Shopping List", style: .default) { (action) in

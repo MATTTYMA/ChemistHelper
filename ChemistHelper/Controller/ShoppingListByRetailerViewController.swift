@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ShoppingListByRetailerViewController: UITableViewController {
     
     private var retailerList:[String]?
+    private var productArray: [Product] = [Product]()
+    private let database = DataBase()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Shoppinglist"
+        loadRetailerList()
     }
     
     //MARK:- Tableview data source method
@@ -27,6 +30,23 @@ class ShoppingListByRetailerViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return retailerList?.count ?? 1
     }
-
+    
+    //MARK:- TableView delegate methods
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    //MARK:- Load Retailers in shopping list to retailerList
+    private func loadRetailerList(){
+        SVProgressHUD.show()
+        database.enqueryRetailersInShoppingList { (result) in
+            if let resultList = result{
+                self.retailerList = resultList
+                self.tableView.reloadData()
+            }
+            SVProgressHUD.dismiss()
+        }
+        
+    }
 }
 

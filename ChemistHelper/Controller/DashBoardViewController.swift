@@ -13,11 +13,13 @@ class DashBoardViewController: UIViewController {
     
     private let dataBase = DataBase()
     
-    override func viewDidLoad() {
+    internal override func viewDidLoad() {
         super.viewDidLoad()
+        SVProgressHUD.show()
         dataBase.getCurrentUserName { (user) in
             if let userName = user{
                 self.title = userName
+                SVProgressHUD.dismiss()
             }
         }
         self.navigationItem.setHidesBackButton(true, animated: true)

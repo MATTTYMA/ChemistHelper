@@ -11,6 +11,7 @@
 		A606BF922241AC8200CC072B /* CustomProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A606BF902241AC8200CC072B /* CustomProductCell.swift */; };
 		A606BF932241AC8200CC072B /* CustomProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A606BF912241AC8200CC072B /* CustomProductCell.xib */; };
 		A6248F99224CC3A30066172E /* ShoppingListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6248F98224CC3A30066172E /* ShoppingListItem.swift */; };
+		A6248F9D224D87330066172E /* ShoppingListProductTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6248F9C224D87330066172E /* ShoppingListProductTableViewController.swift */; };
 		A63AB374223B7836001C69B3 /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63AB373223B7836001C69B3 /* DataBase.swift */; };
 		A66B87E2222F84CE0004263B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66B87E1222F84CE0004263B /* AppDelegate.swift */; };
 		A66B87E4222F84CE0004263B /* WelcomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66B87E3222F84CE0004263B /* WelcomViewController.swift */; };
@@ -32,6 +33,7 @@
 		A606BF902241AC8200CC072B /* CustomProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProductCell.swift; sourceTree = "<group>"; };
 		A606BF912241AC8200CC072B /* CustomProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomProductCell.xib; sourceTree = "<group>"; };
 		A6248F98224CC3A30066172E /* ShoppingListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListItem.swift; sourceTree = "<group>"; };
+		A6248F9C224D87330066172E /* ShoppingListProductTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListProductTableViewController.swift; sourceTree = "<group>"; };
 		A63AB373223B7836001C69B3 /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		A66B87DE222F84CE0004263B /* ChemistHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChemistHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A66B87E1222F84CE0004263B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				A68F98072237367500E145B5 /* DashBoardViewController.swift */,
 				A6EA2658223A474000DD262B /* ProductEnqueryViewController.swift */,
 				A6EA265A223A476900DD262B /* ShoppingListByRetailerViewController.swift */,
+				A6248F9C224D87330066172E /* ShoppingListProductTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				A63AB374223B7836001C69B3 /* DataBase.swift in Sources */,
 				A6248F99224CC3A30066172E /* ShoppingListItem.swift in Sources */,
 				A66B87E4222F84CE0004263B /* WelcomViewController.swift in Sources */,
+				A6248F9D224D87330066172E /* ShoppingListProductTableViewController.swift in Sources */,
 				A68F98062237211500E145B5 /* SignOnViewController.swift in Sources */,
 				A68F98082237367500E145B5 /* DashBoardViewController.swift in Sources */,
 				A66B87FD2236296D0004263B /* Product.swift in Sources */,

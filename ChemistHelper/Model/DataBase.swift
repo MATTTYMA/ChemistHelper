@@ -102,8 +102,10 @@ class DataBase{
     
     func hasLogin() -> Bool {
         if Auth.auth().currentUser != nil{
+            print(Auth.auth().currentUser?.email! ?? "Unknown")
             return true
         } else {
+            print("no user logged in")
             return false
         }
     }
@@ -222,9 +224,34 @@ class DataBase{
         }
     }
     
-    //MARK:- Equery
+    //MARK:- Equery Retailers in Users' Shoppinglist
     
-    
+    func enqueryRetailersInShoppingList(completion: @escaping ([String]?)->()){
+        var result:[String] = [String]()
+        if let userEmail = Auth.auth().currentUser?.email{
+            print(userEmail)
+            let retailersInUsersShoppingListRef = dataBase.collection("users").document(userEmail).collection("shopping_list_by_retailers")
+            retailersInUsersShoppingListRef.getDocuments { (snapshot, error) in
+                if let errorObtained = error{
+                    print("Error while fetching retailers in User's Shopping list: \(errorObtained)")
+                }else{
+                    if let retailerSnapshot = snapshot{
+                        if retailerSnapshot.documents.count == 0{
+                            completion(nil)
+                        }else{
+                            for document in retailerSnapshot.documents{
+                                result.append(document.data()["name"] as! String)
+                            }
+                            completion(result)
+                        }
+                    }else{
+                        completion(nil)
+                    }
+                }
+            }
+        }
+        
+    }
     
     
     

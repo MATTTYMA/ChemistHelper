@@ -72,13 +72,18 @@ class LogInViewController: UIViewController {
     func logIn(with listOfInfo: [String]) {
         let userEmail = listOfInfo[0]
         let userPassword = listOfInfo[1]
+        SVProgressHUD.show()
         dataBase.signIn(userEmail, userPassword) { (errorMessage) in
             if errorMessage != nil {
                 print("Error occured while creating user: \(errorMessage!)")
                 self.generateSignInAlert(with: "Invaild Sign In", and: errorMessage!)
                 self.logInUserEmail.text = ""
                 self.logInPassword.text = ""
+                SVProgressHUD.dismiss()
             } else {
+                self.logInUserEmail.text = ""
+                self.logInPassword.text = ""
+                SVProgressHUD.dismiss()
                 self.performSegue(withIdentifier: "goToDash", sender: self)
             }
         }

@@ -13,7 +13,7 @@
         <!--Welcome-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ChemistHelper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="ChemistHelper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -359,7 +359,7 @@
         <!--Stores-->
         <scene sceneID="NDd-t6-H0r">
             <objects>
-                <tableViewController id="Hyg-RN-hWi" customClass="ShoppingListViewController" customModule="ChemistHelper" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Hyg-RN-hWi" customClass="ShoppingListByRetailerViewController" customModule="ChemistHelper" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OmV-BD-U4p">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -391,7 +391,7 @@
         <!--Shopping List-->
         <scene sceneID="ze3-Ft-9GZ">
             <objects>
-                <tableViewController id="aDP-Qa-HiA" sceneMemberID="viewController">
+                <tableViewController id="aDP-Qa-HiA" customClass="ShoppingListProductTableViewController" customModule="ChemistHelper" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KIS-LV-AQz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -437,6 +437,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ZFy-mK-dHv"/>
+        <segue reference="7Gf-Zk-lQY"/>
     </inferredMetricsTieBreakers>
 </document>

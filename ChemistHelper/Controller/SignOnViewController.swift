@@ -76,6 +76,7 @@ class SignOnViewController: UIViewController {
         let userEmail = listOfInfo[0]
         let userPassword = listOfInfo[1]
         let userNickname = listOfInfo[3]
+        SVProgressHUD.show()
         dataBase.signOn(userEmail, userPassword, userNickname) { (errorMessage) in
             if errorMessage != nil{
                 print("Error occured while creating user: \(errorMessage!)")
@@ -84,7 +85,13 @@ class SignOnViewController: UIViewController {
                 self.registerUserPassword.text = ""
                 self.registerConfirmPassword.text = ""
                 self.registerNickname.text = ""
+                SVProgressHUD.dismiss()
             } else {
+                self.registerUserEmail.text = ""
+                self.registerUserPassword.text = ""
+                self.registerConfirmPassword.text = ""
+                self.registerNickname.text = ""
+                SVProgressHUD.dismiss()
                 self.performSegue(withIdentifier: "goToDash", sender: self)
             }
         }
