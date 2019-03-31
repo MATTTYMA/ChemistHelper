@@ -19,7 +19,7 @@ class ProductEnqueryViewController: UITableViewController, UISearchBarDelegate, 
     @IBOutlet weak var searchBar: UISearchBar!
     
     
-    override func viewDidLoad() {
+    internal override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "CustomProductCell", bundle: nil), forCellReuseIdentifier: "customProductCell")
         configureTableView()
@@ -55,6 +55,10 @@ class ProductEnqueryViewController: UITableViewController, UISearchBarDelegate, 
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    internal override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150.0
+    }
+    
     //MARK:- Tableview DataSource Methods
     internal override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customProductCell", for: indexPath) as! CustomProductCell
@@ -76,14 +80,12 @@ class ProductEnqueryViewController: UITableViewController, UISearchBarDelegate, 
     //MARK:- SwipeTableViewCell delegate methods
     internal func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else {return nil}
-        let visitShopURL = SwipeAction(style: .default, title: "Visit Shop") { (action, indexPath) in
-            print("visiting shop")
+        let visitShopURL = SwipeAction(style: .destructive, title: "Visit Shop") { (action, indexPath) in
             //TODO: visit shop function
         }
-        let addToShoppingList = SwipeAction(style: .default, title: "addToShoppingList") { (action, indexPath) in
-            print("add to shopping list")
-            //TODO: add to shopping list
+        let addToShoppingList = SwipeAction(style: .destructive, title: "addToShoppingList") { (action, indexPath) in
             self.addToShoppingListPressed(on: indexPath)
+            tableView.reloadData()
         }
         return [visitShopURL, addToShoppingList]
     }

@@ -12,28 +12,33 @@ import SVProgressHUD
 class ShoppingListByRetailerViewController: UITableViewController {
     
     private var retailerList:[String]?
-    private var productArray: [Product] = [Product]()
     private let database = DataBase()
 
-    override func viewDidLoad() {
+    internal override func viewDidLoad() {
         super.viewDidLoad()
         loadRetailerList()
     }
     
     //MARK:- Tableview data source method
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    internal override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RetailerCell", for: indexPath)
         cell.textLabel?.text = retailerList?[indexPath.row] ?? "You haven't add any product to your list"
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    internal override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return retailerList?.count ?? 1
     }
     
     //MARK:- TableView delegate methods
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+    internal override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let _ = self.retailerList{
+            self.performSegue(withIdentifier: "goToProducts", sender: self)
+        }
+    }
+    
+    internal override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50.0
     }
     
     //MARK:- Load Retailers in shopping list to retailerList
@@ -48,5 +53,16 @@ class ShoppingListByRetailerViewController: UITableViewController {
         }
         
     }
+    
+    //MARK:- Segue Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? ShoppingListProductTableViewController{
+            if let retailers = self.retailerList{
+                destination.currentRetailer = retailers[self.tableView.indexPathForSelectedRow!.row]
+                tableView.deselectRow(at: self.tableView.indexPathForSelectedRow!, animated: true)
+            }
+        }
+    }
+    
 }
 

@@ -197,6 +197,7 @@ class DataBase{
     func addToShoppingList(prodcut: Product, quantity: Int) {
         var data : [String : Any] = prodcut.castToDictionary()
         data["quantity"] = quantity
+        data["done"] = false
         if let currentUserEmail = Auth.auth().currentUser?.email{
             let retailerRef = dataBase.collection("users").document(currentUserEmail).collection("shopping_list_by_retailers").document(data["retailer"] as! String)
             retailerRef.getDocument { (snapShot, error) in
@@ -229,7 +230,6 @@ class DataBase{
     func enqueryRetailersInShoppingList(completion: @escaping ([String]?)->()){
         var result:[String] = [String]()
         if let userEmail = Auth.auth().currentUser?.email{
-            print(userEmail)
             let retailersInUsersShoppingListRef = dataBase.collection("users").document(userEmail).collection("shopping_list_by_retailers")
             retailersInUsersShoppingListRef.getDocuments { (snapshot, error) in
                 if let errorObtained = error{
@@ -250,9 +250,41 @@ class DataBase{
                 }
             }
         }
-        
     }
     
+    //MARK:- Enquery todo shopping list under specific retailer
+    
+    func enqueryTodoShoppingList(at retailer: String, completion: @escaping ([ShoppingListItem]?)->()) {
+        var resultList: [ShoppingListItem] = [ShoppingListItem]()
+        if let userEmail = Auth.auth().currentUser?.email{
+            let shoppingListRef = dataBase.collection("users").document(userEmail).collection("shopping_list_by_retailers").document(retailer).collection("shopping_list")
+            shoppingListRef.getDocuments { (snapshot, error) in
+                if let errorObtained = error{
+                    print("Error while enquerying user's shopping List: \(errorObtained)")
+                    completion(nil)
+                }else{
+                    if let dataObtained = snapshot{
+                        for document in dataObtained.documents{
+                            let productName = document.data()["product_name"]
+                            let productPrice = document.data()["price_at_the_moment"]
+                            let productShopURL = document.data()["shop_url"]
+                            let productImageURL = document.data()["image_url"]
+                            let productCategories = document.data()["categories"]
+                            let prorductRetailer = document.data()["retailer"]
+                            let quantity = document.data()["quantity"]
+                            let done = document.data()["done"]
+                            let newShoppingListItem = ShoppingListItem(productName: productName as! String, productPrice: productPrice as! String, productImageURL: productImageURL as! String, productShoppingURL: productShopURL as! String, productCategories: productCategories as! [String], productRetailer: prorductRetailer as! String, numbersOfItem: quantity as! Int, done: done as! Bool)
+                            resultList.append(newShoppingListItem)
+                        }
+                        completion(resultList)
+                    }else{
+                        completion(nil)
+                    }
+                }
+            }
+        }
+        
+    }
     
     
 }
