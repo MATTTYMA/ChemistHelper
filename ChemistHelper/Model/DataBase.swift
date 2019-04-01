@@ -283,7 +283,31 @@ class DataBase{
                 }
             }
         }
-        
+    }
+    
+    //MARK:- Update shopping list item quantity to database
+    
+    func updateShoppingListItemQuantity(of productName:String, with quantity: Int, at retailer: String, completion: @escaping (Double?)->()){
+        if let userEmail = Auth.auth().currentUser?.email{
+            let shoppingListItemRef = dataBase.collection("users").document(userEmail).collection("shopping_list_by_retailers").document(retailer).collection("shopping_list").document(productName)
+            shoppingListItemRef.updateData(["quantity": quantity])
+            shoppingListItemRef.getDocument { (snapshot, error) in
+                if let errorObtained = error{
+                    print("Error while fetching shopping list item price: \(errorObtained)")
+                    completion(nil)
+                }else{
+                    if let priceSnapshot = snapshot{
+                        let formatter = NumberFormatter()
+                        formatter.numberStyle = .currency
+                        formatter.locale = Locale(identifier: "en_US")
+                        let price = Double(truncating: formatter.number(from: priceSnapshot.data()?["price_at_the_moment"] as! String) ?? 0)
+                        completion(price * Double(quantity))
+                    }
+                }
+            }
+        }else{
+            completion(nil)
+        }
     }
     
     

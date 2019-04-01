@@ -8,32 +8,59 @@
 
 import UIKit
 
-class CustomShoppingListItemTableViewCell: UITableViewCell {
+class CustomShoppingListItemTableViewCell: UITableViewCell, UITextFieldDelegate {
+    
+    private let dataBase = DataBase()
     
     internal var currentRetailer: String = ""
 
     @IBOutlet weak var productImage: UIImageView!
+    
     @IBOutlet weak var productName: UILabel!
     
     @IBOutlet weak var priceLabel: UILabel!
     
     @IBOutlet weak var quantityLabel: UITextField!
     
+    
     @IBAction func addButtonPressed(_ sender: UIButton) {
+        if let oldValue = Int(quantityLabel.text!){
+            let newQuantity: Int = oldValue+1
+            quantityLabel.text = String(newQuantity)
+            updateQuantity(with: newQuantity)
+        }
     }
     
     @IBAction func subButtonPressed(_ sender: UIButton) {
+        if let oldValue = Int(quantityLabel.text!){
+            let newQuantity: Int = oldValue-1
+            quantityLabel.text = String(newQuantity)
+            updateQuantity(with: newQuantity)
+        }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        quantityLabel.delegate = self
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        updateQuantity(with: Int(textField.text ?? "0") ?? 0)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    private func updateQuantity(with number: Int){
+        dataBase.updateShoppingListItemQuantity(of: productName.text!, with: number, at: currentRetailer) { (newTotalPrice) in
+            if let newSubtotal = newTotalPrice{
+                self.priceLabel.text = "$" + String(newSubtotal)
+            }
+        }
     }
     
 }

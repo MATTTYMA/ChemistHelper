@@ -63,7 +63,7 @@ class Product {
         if let productCategories = self.categories{
             return productCategories
         }else{
-            return nil
+            return []
         }
     }
     
@@ -80,9 +80,9 @@ class Product {
             "product_name": self.getName(),
             "price_at_the_moment": self.getPrice(),
             "retailer": self.getRetailer(),
-            "categories": self.getCategories()!,
+            "categories": self.getCategories() ?? [],
             "shop_url": self.getShoppingURL(),
-            "image_url": self.getImageURL()!,
+            "image_url": self.getImageURL() ?? "",
             ] as [String : Any]
         return dict
     }
