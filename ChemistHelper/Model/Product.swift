@@ -17,7 +17,7 @@ class Product {
     private var categories : [String]?
     private var retailer: String?
     
-    init(productName: String, productPrice:String, productImageURL: String, productShoppingURL: String, productCategories:[String], productRetailer: String) {
+    internal init(productName: String, productPrice:String, productImageURL: String, productShoppingURL: String, productCategories:[String], productRetailer: String) {
         self.name = productName
         self.price = productPrice
         self.imageURL = productImageURL
@@ -26,7 +26,7 @@ class Product {
         self.retailer = productRetailer
     }
     
-    func getName() -> String {
+    internal func getName() -> String {
         if let name = self.name{
             return name
         }
@@ -35,7 +35,7 @@ class Product {
         }
     }
     
-    func getPrice() -> String{
+    internal func getPrice() -> String{
         if let price = self.price{
             return price
         }else{
@@ -43,7 +43,7 @@ class Product {
         }
     }
     
-    func getImageURL() -> String? {
+    internal func getImageURL() -> String? {
         if let imageUrl = self.imageURL{
             return imageUrl
         }else{
@@ -51,7 +51,7 @@ class Product {
         }
     }
     
-    func getShoppingURL() -> String{
+    internal func getShoppingURL() -> String{
         if let shoppingUrl = self.shoppingURL{
             return shoppingUrl
         }else{
@@ -59,7 +59,7 @@ class Product {
         }
     }
     
-    func getCategories() -> [String]? {
+    internal func getCategories() -> [String]? {
         if let productCategories = self.categories{
             return productCategories
         }else{
@@ -67,7 +67,7 @@ class Product {
         }
     }
     
-    func getRetailer() -> String {
+    internal func getRetailer() -> String {
         if let productRetailer = self.retailer{
             return productRetailer
         }else{
@@ -75,7 +75,7 @@ class Product {
         }
     }
     
-    func castToDictionary() -> [String:Any] {
+    internal func castToDictionary() -> [String:Any] {
         let dict = [
             "product_name": self.getName(),
             "price_at_the_moment": self.getPrice(),

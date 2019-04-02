@@ -8,8 +8,9 @@
 
 import UIKit
 import SVProgressHUD
+import SwipeCellKit
 
-class ShoppingListByRetailerViewController: UITableViewController {
+class ShoppingListByRetailerViewController: UITableViewController, SwipeTableViewCellDelegate {
     
     private var retailerList:[String]?
     private let database = DataBase()
@@ -21,7 +22,8 @@ class ShoppingListByRetailerViewController: UITableViewController {
     
     //MARK:- Tableview data source method
     internal override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RetailerCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RetailerCell", for: indexPath) as! SwipeTableViewCell
+        cell.delegate = self
         cell.textLabel?.text = retailerList?[indexPath.row] ?? "You haven't add any product to your list"
         return cell
     }
@@ -41,14 +43,31 @@ class ShoppingListByRetailerViewController: UITableViewController {
         return 50.0
     }
     
+    //MARK:- Swipe tableview delegate method
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else {return nil}
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            self.database.deleteShoppingListByRetailerAndStoreToHistory(retailer: self.retailerList?[indexPath.row] ?? "", completion: { (error) in
+                if let errorObtianed = error{
+                    print("Error while deleting data: \(errorObtianed)")
+                }else{
+                    self.loadRetailerList()
+                }
+            })
+        }
+        return [deleteAction]
+    }
+    
     //MARK:- Load Retailers in shopping list to retailerList
     private func loadRetailerList(){
         SVProgressHUD.show()
         database.enqueryRetailersInShoppingList { (result) in
             if let resultList = result{
                 self.retailerList = resultList
-                self.tableView.reloadData()
+            }else{
+                self.retailerList = []
             }
+            self.tableView.reloadData()
             SVProgressHUD.dismiss()
         }
         

@@ -38,4 +38,18 @@ class ShoppingListItem: Product {
         formatter.locale = Locale(identifier: "en_US")
         return Double(truncating: formatter.number(from: stringValue)!)
     }
+    
+    internal override func castToDictionary() -> [String : Any] {
+        let dict = [
+            "product_name": self.getName(),
+            "price_at_the_moment": self.getPrice(),
+            "retailer": self.getRetailer(),
+            "categories": self.getCategories() ?? [],
+            "shop_url": self.getShoppingURL(),
+            "image_url": self.getImageURL() ?? "",
+            "done": self.haveFinished(),
+            "quantity": self.getQuantity()
+            ] as [String : Any]
+        return dict
+    }
 }

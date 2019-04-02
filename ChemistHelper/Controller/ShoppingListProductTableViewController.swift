@@ -9,8 +9,9 @@
 import UIKit
 import SDWebImage
 import SVProgressHUD
+import SwipeCellKit
 
-class ShoppingListProductTableViewController: UITableViewController {
+class ShoppingListProductTableViewController: UITableViewController, SwipeTableViewCellDelegate {
     
     internal var currentRetailer: String?
     private var shoppingList: [ShoppingListItem] = [ShoppingListItem]()
@@ -51,6 +52,7 @@ class ShoppingListProductTableViewController: UITableViewController {
     
     internal override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customShoppingListItemCell", for: indexPath) as! CustomShoppingListItemTableViewCell
+        cell.delegate = self
         cell.currentRetailer = self.currentRetailer ?? "Unknown"
         cell.productName.text = shoppingList[indexPath.row].getName()
         cell.priceLabel.text = shoppingList[indexPath.row].getTotalPrice()
@@ -59,6 +61,18 @@ class ShoppingListProductTableViewController: UITableViewController {
             cell.productImage.sd_setImage(with: URL(string: imageUrl))
         }
         return cell
+    }
+    
+    //MARK:- swipe tableview delegate method
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else{return nil}
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            if let thisRetailer = self.currentRetailer{
+                self.database.deleteShoppingListItem(of: self.shoppingList[indexPath.row].getName(), for: thisRetailer)
+                self.enqueryTodoShoppingList(at: thisRetailer)
+            }
+        }
+        return [deleteAction]
     }
     
     //Enquery todo shopping list
@@ -72,7 +86,5 @@ class ShoppingListProductTableViewController: UITableViewController {
             SVProgressHUD.dismiss()
         }
     }
-    
-
    
 }

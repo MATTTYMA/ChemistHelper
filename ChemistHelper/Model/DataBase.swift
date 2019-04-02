@@ -15,6 +15,20 @@ class DataBase{
     
     private let dataBase = Firestore.firestore()
     
+    //MARK:- WelcomViewController
+    //MARK:- Check log in statue method
+    
+    func hasLogin() -> Bool {
+        if Auth.auth().currentUser != nil{
+            print(Auth.auth().currentUser?.email! ?? "Unknown")
+            return true
+        } else {
+            print("no user logged in")
+            return false
+        }
+    }
+    
+    // MARK:- LogInViewController
     // MARK:- Sign On methods
     
     func signOn(_ userEmail: String, _ userPassword: String, _ userNickname: String, completion: @escaping (String?)->())  {
@@ -34,6 +48,8 @@ class DataBase{
         }
     }
     
+    //MARK:- SignInViewController
+    //MARK:- create new user
     private func createUserData(userEmailCaptured: String, userNicknameCaptured: String){
         let userData: [String:Any] = [
             "user_email":userEmailCaptured,
@@ -76,7 +92,7 @@ class DataBase{
         }
     }
 
-    //MARK:- Sign In/Out Method
+    //MARK:- Sign In Method
     
     func signIn(_ userEmail: String, _ userPassword: String, completion: @escaping (String?)->()){
         Auth.auth().signIn(withEmail: userEmail, password: userPassword) { (user, error) in
@@ -89,27 +105,7 @@ class DataBase{
         }
     }
     
-    func signOut(){
-        do{
-            try Auth.auth().signOut()
-        }
-        catch{
-            print("Error, there was a problem while signing out")
-        }
-    }
-    
-    //MARK:- Check log in statue method
-    
-    func hasLogin() -> Bool {
-        if Auth.auth().currentUser != nil{
-            print(Auth.auth().currentUser?.email! ?? "Unknown")
-            return true
-        } else {
-            print("no user logged in")
-            return false
-        }
-    }
-    
+    //MARK:- DashboardViewController
     //MARK:- Get current user Info methods
 
     func getCurrentUserName(completion: @escaping (String?)->()){
@@ -132,7 +128,17 @@ class DataBase{
         }
     }
     
+    //MARK:- Sign out
+    func signOut(){
+        do{
+            try Auth.auth().signOut()
+        }
+        catch{
+            print("Error, there was a problem while signing out")
+        }
+    }
     
+    //MARK:- ProductEnqueryViewController
     //MARK:- retailer in product dataBase enquery methods
     
     private func enqueryRetailer(completion: @escaping ([String]?)->()) {
@@ -225,6 +231,7 @@ class DataBase{
         }
     }
     
+    //MARK:- ShoppingListByRetailerViewController
     //MARK:- Equery Retailers in Users' Shoppinglist
     
     func enqueryRetailersInShoppingList(completion: @escaping ([String]?)->()){
@@ -252,6 +259,51 @@ class DataBase{
         }
     }
     
+    //MARK:- Finish the shoping list in this retailer and store to shopping history
+    
+    func deleteShoppingListByRetailerAndStoreToHistory(retailer: String, completion: @escaping (Error?)->()){
+        if let userEmail = Auth.auth().currentUser?.email{
+            let date = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd.MM.yyyy"
+            let result = formatter.string(from: date)
+            let shoppingListByRetailerRef = dataBase.collection("users").document(userEmail).collection("shopping_list_by_retailers").document(retailer).collection("shopping_list")
+            let historyRef = dataBase.collection("users").document(userEmail).collection("history").document(result)
+            historyRef.setData(["date":result])
+            let historyShoppingListRef = historyRef.collection(retailer)
+            shoppingListByRetailerRef.getDocuments { (snapshot, error) in
+                if let errorObtained = error{
+                    completion(errorObtained)
+                }else{
+                    if let productSnapshot = snapshot{
+                        for document in productSnapshot.documents{
+                            historyShoppingListRef.document(document.data()["product_name"] as! String).getDocument(completion: { (snapshot, error) in
+                                if let errorObtained = error {
+                                    print("Error obtained while fetching shopping history: \(errorObtained)")
+                                }else{
+                                    if let existDocSnapshot = snapshot {
+                                        if let existQuantity = existDocSnapshot.data()?["quantity"]{
+                                            let newQuantity = (existQuantity as! Int) + (document.data()["quantity"] as! Int)
+                                            historyShoppingListRef.document(document.data()["product_name"] as! String).updateData(["quantity" : newQuantity])
+                                        }else{
+                                            historyShoppingListRef.document(document.data()["product_name"] as! String).setData(document.data())
+                                        }
+                                        shoppingListByRetailerRef.document(document.data()["product_name"] as! String).delete()
+                                        
+                                    }
+                                }
+                            })
+                        }
+                        shoppingListByRetailerRef.parent?.delete()
+                    }
+                    completion(nil)
+                }
+            }
+        }
+    }
+    
+    
+    //MARK:- ShoppingListProductTableViewController
     //MARK:- Enquery todo shopping list under specific retailer
     
     func enqueryTodoShoppingList(at retailer: String, completion: @escaping ([ShoppingListItem]?)->()) {
@@ -285,8 +337,17 @@ class DataBase{
         }
     }
     
-    //MARK:- Update shopping list item quantity to database
+    //MARK:- Delete Shoppinglist item function
     
+    func deleteShoppingListItem(of productName: String, for retailer: String){
+        if let userEmail = Auth.auth().currentUser?.email{
+            let shoppingListItemRef = dataBase.collection("users").document(userEmail).collection("shopping_list_by_retailers").document(retailer).collection("shopping_list").document(productName)
+            shoppingListItemRef.delete()
+        }
+    }
+    
+    //MARK:- CustomShoppingListItemTableViewCell
+    //MARK:- Update shopping list item quantity to database
     func updateShoppingListItemQuantity(of productName:String, with quantity: Int, at retailer: String, completion: @escaping (Double?)->()){
         if let userEmail = Auth.auth().currentUser?.email{
             let shoppingListItemRef = dataBase.collection("users").document(userEmail).collection("shopping_list_by_retailers").document(retailer).collection("shopping_list").document(productName)
@@ -309,6 +370,7 @@ class DataBase{
             completion(nil)
         }
     }
+    
     
     
 }

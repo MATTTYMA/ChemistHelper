@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import SwipeCellKit
+import SVProgressHUD
 
-class CustomShoppingListItemTableViewCell: UITableViewCell, UITextFieldDelegate {
+class CustomShoppingListItemTableViewCell: SwipeTableViewCell, UITextFieldDelegate {
     
     private let dataBase = DataBase()
     
@@ -39,27 +41,29 @@ class CustomShoppingListItemTableViewCell: UITableViewCell, UITextFieldDelegate 
         }
     }
     
-    override func awakeFromNib() {
+    internal override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         quantityLabel.delegate = self
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    internal func textFieldDidEndEditing(_ textField: UITextField) {
         updateQuantity(with: Int(textField.text ?? "0") ?? 0)
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    internal override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
     private func updateQuantity(with number: Int){
+        SVProgressHUD.show()
         dataBase.updateShoppingListItemQuantity(of: productName.text!, with: number, at: currentRetailer) { (newTotalPrice) in
             if let newSubtotal = newTotalPrice{
                 self.priceLabel.text = "$" + String(newSubtotal)
             }
+            SVProgressHUD.dismiss()
         }
     }
     
