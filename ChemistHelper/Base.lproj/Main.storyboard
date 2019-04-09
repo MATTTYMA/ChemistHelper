@@ -326,7 +326,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="iyo-b3-2Jc">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="336" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
@@ -396,9 +396,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="JHY-w8-zIM">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtotal:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEX-UI-f5g">
+                                    <rect key="frame" x="172" y="10" width="69" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="$1882.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MpC-v6-6MR">
+                                    <rect key="frame" x="251" y="10" width="74" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="MpC-v6-6MR" firstAttribute="top" secondItem="JHY-w8-zIM" secondAttribute="top" constant="10" id="9wr-Eu-Cmy"/>
+                                <constraint firstItem="MpC-v6-6MR" firstAttribute="leading" secondItem="gEX-UI-f5g" secondAttribute="trailing" constant="10" id="D1C-8h-ZG2"/>
+                                <constraint firstAttribute="bottom" secondItem="gEX-UI-f5g" secondAttribute="bottom" constant="10" id="Fw2-FT-OBQ"/>
+                                <constraint firstAttribute="trailing" secondItem="MpC-v6-6MR" secondAttribute="trailing" constant="50" id="OOl-UD-Wr9"/>
+                                <constraint firstItem="gEX-UI-f5g" firstAttribute="top" secondItem="JHY-w8-zIM" secondAttribute="top" constant="10" id="Yjp-ZK-wS8"/>
+                                <constraint firstAttribute="bottom" secondItem="MpC-v6-6MR" secondAttribute="bottom" constant="10" id="Ysv-kp-TQd"/>
+                                <constraint firstItem="MpC-v6-6MR" firstAttribute="leading" secondItem="gEX-UI-f5g" secondAttribute="trailing" constant="10" id="ale-oo-ksQ"/>
+                                <constraint firstItem="gEX-UI-f5g" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JHY-w8-zIM" secondAttribute="leading" constant="20" symbolic="YES" id="xmx-Zb-00P"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customShoppingListItemCell" id="IHN-NK-UAv">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IHN-NK-UAv" id="8nX-JL-VDq">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -412,10 +441,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Shopping List" id="dp1-Kr-UhU"/>
+                    <connections>
+                        <outlet property="subtotalLabel" destination="MpC-v6-6MR" id="GWC-Q6-s7A"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fwl-HQ-4yx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4466" y="482"/>
+            <point key="canvasLocation" x="4464.8000000000002" y="481.77339901477836"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Tv0-ZX-RUK">

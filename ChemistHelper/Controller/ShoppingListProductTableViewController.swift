@@ -16,7 +16,8 @@ class ShoppingListProductTableViewController: UITableViewController, SwipeTableV
     internal var currentRetailer: String?
     private var shoppingList: [ShoppingListItem] = [ShoppingListItem]()
     private let database = DataBase()
-
+    @IBOutlet weak var subtotalLabel: UILabel!
+    
     internal override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "CustomShoppingListItemTableViewCell", bundle: nil), forCellReuseIdentifier: "customShoppingListItemCell")
