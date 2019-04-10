@@ -29,7 +29,7 @@ Further development will include business management analysis(Monthly/Anually Bu
 <img src="ChemistHelper/Assets.xcassets/product_image/signon_normal.imageset/signon_normal.png" width="200"> | <img src="ChemistHelper/Assets.xcassets/product_image/signon_local_error.imageset/signon_local_error.png" width="200"> | <img src="ChemistHelper/Assets.xcassets/product_image/signon_database_error.imageset/signon_database_error.png" width="200">
 
 # User Dash Board
-Still thinking how to design and arrange it, but fully functional at the moment
+Still thinking how to design and arrange it, but fully functioning at the moment
 
 <img src="ChemistHelper/Assets.xcassets/product_image/dashboard.imageset/dashboard.png" width="200"> 
 
