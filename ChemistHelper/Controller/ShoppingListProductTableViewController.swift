@@ -100,7 +100,6 @@ class ShoppingListProductTableViewController: UITableViewController, SwipeTableV
     
     internal func updateShoppingList(newList: [ShoppingListItem]) {
         self.shoppingList = newList
-        print("protocol excuted")
     }
    
 }

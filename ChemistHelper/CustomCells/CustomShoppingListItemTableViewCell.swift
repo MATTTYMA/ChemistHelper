@@ -10,12 +10,6 @@ import UIKit
 import SwipeCellKit
 import SVProgressHUD
 
-protocol UpdateParentViewControllerDelegate {
-    
-    func updateShoppingList(newList: [ShoppingListItem])
-    func updateSubtotal()
-}
-
 class CustomShoppingListItemTableViewCell: SwipeTableViewCell, UITextFieldDelegate {
     
     private let dataBase = DataBase()

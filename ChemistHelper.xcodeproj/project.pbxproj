@@ -25,6 +25,7 @@
 		A68F980422371F5C00E145B5 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F980322371F5C00E145B5 /* LogInViewController.swift */; };
 		A68F98062237211500E145B5 /* SignOnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F98052237211500E145B5 /* SignOnViewController.swift */; };
 		A68F98082237367500E145B5 /* DashBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F98072237367500E145B5 /* DashBoardViewController.swift */; };
+		A6C0D4C1225E056200C369CA /* UpdateParentViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C0D4C0225E056200C369CA /* UpdateParentViewControllerDelegate.swift */; };
 		A6EA2659223A474000DD262B /* ProductEnqueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EA2658223A474000DD262B /* ProductEnqueryViewController.swift */; };
 		A6EA265B223A476900DD262B /* ShoppingListByRetailerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EA265A223A476900DD262B /* ShoppingListByRetailerViewController.swift */; };
 /* End PBXBuildFile section */
@@ -51,6 +52,7 @@
 		A68F980322371F5C00E145B5 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		A68F98052237211500E145B5 /* SignOnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOnViewController.swift; sourceTree = "<group>"; };
 		A68F98072237367500E145B5 /* DashBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardViewController.swift; sourceTree = "<group>"; };
+		A6C0D4C0225E056200C369CA /* UpdateParentViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateParentViewControllerDelegate.swift; sourceTree = "<group>"; };
 		A6EA2658223A474000DD262B /* ProductEnqueryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEnqueryViewController.swift; sourceTree = "<group>"; };
 		A6EA265A223A476900DD262B /* ShoppingListByRetailerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListByRetailerViewController.swift; sourceTree = "<group>"; };
 		D8EA21F98817992A97B81630 /* Pods-ChemistHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChemistHelper.release.xcconfig"; path = "Target Support Files/Pods-ChemistHelper/Pods-ChemistHelper.release.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				A6EA2658223A474000DD262B /* ProductEnqueryViewController.swift */,
 				A6EA265A223A476900DD262B /* ShoppingListByRetailerViewController.swift */,
 				A6248F9C224D87330066172E /* ShoppingListProductTableViewController.swift */,
+				A6C0D4C0225E056200C369CA /* UpdateParentViewControllerDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A63AB374223B7836001C69B3 /* DataBase.swift in Sources */,
+				A6C0D4C1225E056200C369CA /* UpdateParentViewControllerDelegate.swift in Sources */,
 				A6248F99224CC3A30066172E /* ShoppingListItem.swift in Sources */,
 				A66B87E4222F84CE0004263B /* WelcomViewController.swift in Sources */,
 				A6248F9D224D87330066172E /* ShoppingListProductTableViewController.swift in Sources */,
