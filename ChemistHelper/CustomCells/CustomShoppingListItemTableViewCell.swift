@@ -10,6 +10,12 @@ import UIKit
 import SwipeCellKit
 import SVProgressHUD
 
+protocol UpdateParentViewControllerDelegate {
+    
+    func updateShoppingList(newList: [ShoppingListItem])
+    func updateSubtotal()
+}
+
 class CustomShoppingListItemTableViewCell: SwipeTableViewCell, UITextFieldDelegate {
     
     private let dataBase = DataBase()
@@ -24,6 +30,7 @@ class CustomShoppingListItemTableViewCell: SwipeTableViewCell, UITextFieldDelega
     
     @IBOutlet weak var quantityLabel: UITextField!
     
+    var updateDelegate: UpdateParentViewControllerDelegate?
     
     @IBAction func addButtonPressed(_ sender: UIButton) {
         if let oldValue = Int(quantityLabel.text!){
@@ -61,7 +68,13 @@ class CustomShoppingListItemTableViewCell: SwipeTableViewCell, UITextFieldDelega
         SVProgressHUD.show()
         dataBase.updateShoppingListItemQuantity(of: productName.text!, with: number, at: currentRetailer) { (newTotalPrice) in
             if let newSubtotal = newTotalPrice{
-                self.priceLabel.text = "$" + String(newSubtotal)
+                self.priceLabel.text = "$" + String(format:"%.2f", arguments:[newSubtotal])
+                self.dataBase.enqueryTodoShoppingList(at: self.currentRetailer, completion: { (newList) in
+                    if let listToBeUpdated = newList{
+                        self.updateDelegate?.updateShoppingList(newList: listToBeUpdated)
+                        self.updateDelegate?.updateSubtotal()
+                    }
+                })
             }
             SVProgressHUD.dismiss()
         }

@@ -11,7 +11,7 @@ import SDWebImage
 import SVProgressHUD
 import SwipeCellKit
 
-class ShoppingListProductTableViewController: UITableViewController, SwipeTableViewCellDelegate {
+class ShoppingListProductTableViewController: UITableViewController, SwipeTableViewCellDelegate, UpdateParentViewControllerDelegate {
     
     internal var currentRetailer: String?
     private var shoppingList: [ShoppingListItem] = [ShoppingListItem]()
@@ -26,7 +26,6 @@ class ShoppingListProductTableViewController: UITableViewController, SwipeTableV
     override func viewDidAppear(_ animated: Bool) {
         configureTableView()
         enqueryTodoShoppingList(at: currentRetailer ?? "")
-        print(tableView.rowHeight)
     }
     
     //MARK:- tableview Configuration Method
@@ -54,6 +53,7 @@ class ShoppingListProductTableViewController: UITableViewController, SwipeTableV
     internal override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customShoppingListItemCell", for: indexPath) as! CustomShoppingListItemTableViewCell
         cell.delegate = self
+        cell.updateDelegate = self
         cell.currentRetailer = self.currentRetailer ?? "Unknown"
         cell.productName.text = shoppingList[indexPath.row].getName()
         cell.priceLabel.text = shoppingList[indexPath.row].getTotalPrice()
@@ -90,7 +90,7 @@ class ShoppingListProductTableViewController: UITableViewController, SwipeTableV
     }
     
     //MARK:- update subtotal label
-    private func updateSubtotal(){
+    internal func updateSubtotal(){
         var subtotal = 0.0
         for item in self.shoppingList{
             subtotal += item.getNumericTotallPrice()
@@ -98,6 +98,9 @@ class ShoppingListProductTableViewController: UITableViewController, SwipeTableV
         subtotalLabel.text = "$" + String(format:"%.2f", arguments: [subtotal])
     }
     
-    
+    internal func updateShoppingList(newList: [ShoppingListItem]) {
+        self.shoppingList = newList
+        print("protocol excuted")
+    }
    
 }
