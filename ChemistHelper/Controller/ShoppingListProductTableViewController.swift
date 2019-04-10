@@ -65,7 +65,7 @@ class ShoppingListProductTableViewController: UITableViewController, SwipeTableV
     }
     
     //MARK:- swipe tableview delegate method
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+    internal func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else{return nil}
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { (action, indexPath) in
             if let thisRetailer = self.currentRetailer{
@@ -76,16 +76,28 @@ class ShoppingListProductTableViewController: UITableViewController, SwipeTableV
         return [deleteAction]
     }
     
-    //Enquery todo shopping list
-    func enqueryTodoShoppingList(at currentRetailer: String) {
+    //MARK:- Enquery todo shopping list
+    private func enqueryTodoShoppingList(at currentRetailer: String) {
         SVProgressHUD.show()
         database.enqueryTodoShoppingList(at: currentRetailer) { (resultList) in
             if let result = resultList{
                 self.shoppingList = result
                 self.tableView.reloadData()
+                self.updateSubtotal()
             }
             SVProgressHUD.dismiss()
         }
     }
+    
+    //MARK:- update subtotal label
+    private func updateSubtotal(){
+        var subtotal = 0.0
+        for item in self.shoppingList{
+            subtotal += item.getNumericTotallPrice()
+        }
+        subtotalLabel.text = "$" + String(format:"%.2f", arguments: [subtotal])
+    }
+    
+    
    
 }

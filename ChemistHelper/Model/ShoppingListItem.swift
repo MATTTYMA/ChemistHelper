@@ -29,7 +29,12 @@ class ShoppingListItem: Product {
     
     internal func getTotalPrice() -> String {
         let singlePrice = getNumericPrice(self.getPrice())
-        return "$"+String(singlePrice*Double(self.quantity))
+        return "$"+String(format:"%.2f", arguments: [singlePrice*Double(self.quantity)])
+    }
+    
+    internal func getNumericTotallPrice() -> Double{
+        let singlePrice = getNumericPrice(self.getPrice())
+        return singlePrice*Double(self.quantity)
     }
     
     private func getNumericPrice(_ stringValue: String)->Double{
