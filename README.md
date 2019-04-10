@@ -1,6 +1,7 @@
 # ChemistHelper
 
 An iOS app which helps individuals to manage, analysis their business of Aussie suppliments
+To try this out, make sure you have Xcode 10 installed, and run "pod install" after clone it to local
 
 Data deployed on FireBase
 
