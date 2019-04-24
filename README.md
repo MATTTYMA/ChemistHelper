@@ -13,7 +13,9 @@ Prototype will include:
   
   Todo shopping list functions
   
-Further development will include business management analysis(Monthly/Anually Business Report, Sales Data Analysis, Recommand System)
+Further development will include business management analysis(Monthly/Anually Business Report, Sales Data Analysis, Recommand System) 
+
+Still a lot to go.....
 
 # User welcome interface
 <img src="ChemistHelper/Assets.xcassets/product_image/welcome.imageset/welcome.png" width="200">
