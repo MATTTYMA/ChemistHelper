@@ -15,7 +15,7 @@ Prototype will include:
   
 Further development will include business management analysis(Monthly/Anually Business Report, Sales Data Analysis, Recommand System) 
 
-Still a lot to go.....
+Still a lot to do.....
 
 # User welcome interface
 <img src="ChemistHelper/Assets.xcassets/product_image/welcome.imageset/welcome.png" width="200">
