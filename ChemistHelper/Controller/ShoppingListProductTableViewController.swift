@@ -89,7 +89,7 @@ class ShoppingListProductTableViewController: UITableViewController, SwipeTableV
         }
     }
     
-    //MARK:- update subtotal label
+    //MARK:- update subtotal label confirm update protocol
     internal func updateSubtotal(){
         var subtotal = 0.0
         for item in self.shoppingList{

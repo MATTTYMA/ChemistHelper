@@ -22,6 +22,8 @@
 		A66B87EC222F84D00004263B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A66B87EA222F84D00004263B /* LaunchScreen.storyboard */; };
 		A66B87F5222F85500004263B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A66B87F4222F85500004263B /* GoogleService-Info.plist */; };
 		A66B87FD2236296D0004263B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66B87FC2236296D0004263B /* Product.swift */; };
+		A68E2287227677B100632AEC /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E2286227677B100632AEC /* DateCell.swift */; };
+		A68E2289227679CB00632AEC /* HistoryCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68E2288227679CB00632AEC /* HistoryCalendarViewController.swift */; };
 		A68F980422371F5C00E145B5 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F980322371F5C00E145B5 /* LogInViewController.swift */; };
 		A68F98062237211500E145B5 /* SignOnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F98052237211500E145B5 /* SignOnViewController.swift */; };
 		A68F98082237367500E145B5 /* DashBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F98072237367500E145B5 /* DashBoardViewController.swift */; };
@@ -49,6 +51,8 @@
 		A66B87ED222F84D00004263B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A66B87F4222F85500004263B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A66B87FC2236296D0004263B /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		A68E2286227677B100632AEC /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
+		A68E2288227679CB00632AEC /* HistoryCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCalendarViewController.swift; sourceTree = "<group>"; };
 		A68F980322371F5C00E145B5 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		A68F98052237211500E145B5 /* SignOnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOnViewController.swift; sourceTree = "<group>"; };
 		A68F98072237367500E145B5 /* DashBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +98,7 @@
 				A606BF912241AC8200CC072B /* CustomProductCell.xib */,
 				A6248F9E224DABBF0066172E /* CustomShoppingListItemTableViewCell.swift */,
 				A6248F9F224DABBF0066172E /* CustomShoppingListItemTableViewCell.xib */,
+				A68E2286227677B100632AEC /* DateCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -169,6 +174,7 @@
 				A6EA265A223A476900DD262B /* ShoppingListByRetailerViewController.swift */,
 				A6248F9C224D87330066172E /* ShoppingListProductTableViewController.swift */,
 				A6C0D4C0225E056200C369CA /* UpdateParentViewControllerDelegate.swift */,
+				A68E2288227679CB00632AEC /* HistoryCalendarViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -293,6 +299,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A63AB374223B7836001C69B3 /* DataBase.swift in Sources */,
+				A68E2289227679CB00632AEC /* HistoryCalendarViewController.swift in Sources */,
+				A68E2287227677B100632AEC /* DateCell.swift in Sources */,
 				A6C0D4C1225E056200C369CA /* UpdateParentViewControllerDelegate.swift in Sources */,
 				A6248F99224CC3A30066172E /* ShoppingListItem.swift in Sources */,
 				A66B87E4222F84CE0004263B /* WelcomViewController.swift in Sources */,

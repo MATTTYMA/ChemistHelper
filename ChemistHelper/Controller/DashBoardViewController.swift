@@ -45,6 +45,11 @@ class DashBoardViewController: UIViewController {
         self.performSegue(withIdentifier: "goToRetailerList", sender: self)
     }
     
-
+   
+    
+    @IBAction func goToShoppingHistoryPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "goToShoppingHistoryCalendar", sender: self)
+    }
+    
     
 }

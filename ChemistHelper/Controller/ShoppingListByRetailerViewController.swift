@@ -74,7 +74,7 @@ class ShoppingListByRetailerViewController: UITableViewController, SwipeTableVie
     }
     
     //MARK:- Segue Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    internal override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? ShoppingListProductTableViewController{
             if let retailers = self.retailerList{
                 destination.currentRetailer = retailers[self.tableView.indexPathForSelectedRow!.row]

@@ -14,5 +14,6 @@ target 'ChemistHelper' do
   pod 'SVProgressHUD'
   pod 'SwipeCellKit'
   pod 'SDWebImage'
+  pod 'JTAppleCalendar', '~> 7.0'
   
 end
